@@ -1,5 +1,6 @@
 import { Container, Box, Typography } from "@mui/material";
-import { tokens as colors } from "../../styles/colors";
+import { tokens as colors } from "../styles/colors";
+import { LoginForm } from "../components";
 
 const Login = () => {
   return (
@@ -17,9 +18,7 @@ const Login = () => {
           }}
         >
           <img src="/assets/login/pic.png" alt="logo" />
-          <Typography variant="h2" color={colors.greenAccent[100]}>
-            Login
-          </Typography>
+          <LoginForm />
         </Box>
       </Container>
     </center>
