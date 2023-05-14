@@ -7,9 +7,8 @@ import { LoginUser } from "../../typings";
 
 import { SignIn } from "../../apis/Auth.apis";
 
-const LoginForm = () => {
-  let navigate = useNavigate();
-  function route() {
+
+  function handleRoute(navigate: NavigateFunction) {
     if (localStorage.getItem("idToken")) {
       console.log("dlehd");
       navigate("/my page");
@@ -17,11 +16,15 @@ const LoginForm = () => {
       navigate("/plan");
     }
   }
+
+const LoginForm = () => {
+  let navigate = useNavigate();
+
   const onSubmit = async (values: LoginUser) => {
     //console.log(values);
     //console.log(actions);
     await SignIn(values);
-    route();
+    handleRoute(navigate);
   };
 
   const {
