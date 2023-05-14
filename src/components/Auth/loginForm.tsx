@@ -1,3 +1,4 @@
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import { Container, Box, Typography, TextField, Button } from "@mui/material";
 
 import { useFormik } from "formik";
@@ -6,15 +7,23 @@ import { LoginUser } from "../../typings";
 
 import { SignIn } from "../../apis/Auth.apis";
 
-const onSubmit = async (values: LoginUser /*actions:*/) => {
-  console.log(values);
-  //console.log(actions);
-  const response = await SignIn(values);
-  console.log(response);
-  // actions.resetForm();
-};
-
 const LoginForm = () => {
+  let navigate = useNavigate();
+  function route() {
+    if (localStorage.getItem("idToken")) {
+      console.log("dlehd");
+      navigate("/my page");
+    } else {
+      navigate("/plan");
+    }
+  }
+  const onSubmit = async (values: LoginUser) => {
+    //console.log(values);
+    //console.log(actions);
+    await SignIn(values);
+    route();
+  };
+
   const {
     values,
     errors,

@@ -11,10 +11,14 @@ export const SignIn = async (loginUser: LoginUser) => {
       password: loginUser.password,
       returnSecureToken: true,
     });
-    console.log("SignIn Api", data, status);
+    //console.log("SignIn Api", data, status);
     localStorage.setItem("idToken", data.idToken);
-    return status;
   } catch (err) {
-    return err;
+    if (err instanceof Error) {
+      // 👉️ err is type Error here
+      console.log(err.message);
+    }
+
+    console.log("Unexpected error", err);
   }
 };

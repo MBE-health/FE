@@ -12,7 +12,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <HeaderMenu />
       <AppNav />
-      <Login />
     </ThemeProvider>
   );
 }
