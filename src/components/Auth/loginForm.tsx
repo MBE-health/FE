@@ -1,6 +1,6 @@
 import { Formik } from "formik";
 import * as yup from "yup";
-import { Container, Box, Typography } from "@mui/material";
+import { Container, Box, Typography, TextField, Button } from "@mui/material";
 import { tokens as colors } from "../../styles/colors";
 
 import { useFormik } from "formik";
@@ -10,7 +10,8 @@ import { LoginUser } from "../../typings";
 const onSubmit = async (values: LoginUser /*actions:*/) => {
   console.log(values);
   //console.log(actions);
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  const response = await new Promise((resolve) => setTimeout(resolve, 1000));
+  console.log("ouSubmit", response);
   // actions.resetForm();
 };
 
@@ -34,41 +35,84 @@ const LoginForm = () => {
 
   console.log(errors);
   return (
-    <Box>
-      <Typography variant="h2" color={colors.greenAccent[100]}>
+    <Box
+      sx={{
+        width: "40rem",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+      }}
+    >
+      <Typography variant="h2" color="secondary.light" marginBottom="5rem">
         Login
       </Typography>
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <label htmlFor="email">Email</label>
-        <input
+      <form
+        onSubmit={handleSubmit}
+        autoComplete="off"
+        style={{ width: "100%" }}
+      >
+        <TextField
           value={values.email}
           onChange={handleChange}
           id="email"
           type="email"
-          placeholder="Enter your email"
+          placeholder="Enter Email"
           onBlur={handleBlur}
           className={errors.email && touched.email ? "input-error" : ""}
+          fullWidth
+          variant="outlined"
+          margin="normal"
         />
         {errors.email && touched.email && (
-          <p className="error">{errors.email}</p>
+          <Typography variant="h6" className="error">
+            {errors.email}
+          </Typography>
         )}
-
-        <label htmlFor="password">Password</label>
-        <input
+        <TextField
           id="password"
           type="password"
-          placeholder="Enter your password"
+          placeholder="Enter Password"
           value={values.password}
           onChange={handleChange}
           onBlur={handleBlur}
           className={errors.password && touched.password ? "input-error" : ""}
+          fullWidth
+          variant="outlined"
+          margin="normal"
         />
         {errors.password && touched.password && (
-          <p className="error">{errors.password}</p>
+          <Typography variant="h6" className="error">
+            {errors.password}
+          </Typography>
         )}
-        <button disabled={isSubmitting} type="submit">
-          Submit
-        </button>
+        <Button
+          variant="contained"
+          disabled={isSubmitting}
+          type="submit"
+          fullWidth
+          disableElevation
+          sx={{
+            backgroundColor: "secondary.light",
+            margin: "6.5rem 0 1.5rem",
+          }}
+        >
+          로그인
+        </Button>
+        <Button
+          variant="outlined"
+          disabled={isSubmitting}
+          type="submit"
+          fullWidth
+          disableElevation
+          sx={{
+            color: "secondary.light",
+            border: "2px solid secondary.light",
+            borderColor: "secondary.light",
+          }}
+        >
+          회원가입
+        </Button>
       </form>
     </Box>
   );

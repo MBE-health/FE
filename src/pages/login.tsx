@@ -13,8 +13,8 @@ const Login = () => {
             backgroundSize: "cover",
             display: "flex",
             flexDirection: "row",
-            justifyContent: "space-between",
-            padding: "4.5rem 9rem",
+            justifyContent: "space-around",
+            padding: "4.5rem 0rem",
           }}
         >
           <img src="/assets/login/pic.png" alt="logo" />
