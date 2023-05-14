@@ -1,11 +1,12 @@
 import { CircularProgress } from "@mui/material";
 
 import { Routes, Route } from "react-router-dom";
-import { Mypage, OnBoarding, Plan, Analyze } from "./pages";
+import { Mypage, OnBoarding, Plan, Analyze, Login } from "./pages";
 
 const AppNav = () => {
   return (
     <Routes>
+      <Route path="/login" element={<Login />} />
       <Route path="/analyze" element={<Analyze />} />
       <Route path="/plan" element={<Plan />} />
       <Route path="/my page" element={<Mypage />} />

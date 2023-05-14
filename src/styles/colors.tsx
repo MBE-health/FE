@@ -23,7 +23,7 @@ export const tokens = {
     900: "#000000",
   },
   greenAccent: {
-    100: "#dbf5ee",
+    100: "#A8BBB5",
     200: "#b7ebde",
     300: "#94e2cd",
     400: "#70d8bd",

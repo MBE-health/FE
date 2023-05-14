@@ -3,7 +3,8 @@ import "./styles/global.css";
 import "./styles/reset.css";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./styles/theme";
-import { HeaderMenu, Login } from "./components";
+import { Login } from "./pages";
+import { HeaderMenu } from "./components";
 import AppNav from "./AppNav";
 
 function App() {
@@ -11,7 +12,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <HeaderMenu />
       <AppNav />
-      <Login />
     </ThemeProvider>
   );
 }

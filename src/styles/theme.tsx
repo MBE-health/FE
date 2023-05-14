@@ -1,4 +1,3 @@
-import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
 import { tokens as colors } from "./colors";
 
@@ -10,6 +9,7 @@ export const theme = createTheme({
     },
     secondary: {
       main: colors.greenAccent[500],
+      light: colors.greenAccent[100],
     },
     background: {
       default: "#fcfcfc",
