@@ -1,17 +1,16 @@
-import { Formik } from "formik";
-import * as yup from "yup";
 import { Container, Box, Typography, TextField, Button } from "@mui/material";
-import { tokens as colors } from "../../styles/colors";
 
 import { useFormik } from "formik";
 import { LoginSchema } from "../../schema/Login";
 import { LoginUser } from "../../typings";
 
+import { SignIn } from "../../apis/Auth.apis";
+
 const onSubmit = async (values: LoginUser /*actions:*/) => {
   console.log(values);
   //console.log(actions);
-  const response = await new Promise((resolve) => setTimeout(resolve, 1000));
-  console.log("ouSubmit", response);
+  const response = await SignIn(values);
+  console.log(response);
   // actions.resetForm();
 };
 
