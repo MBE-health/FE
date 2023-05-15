@@ -1,5 +1,7 @@
-import { fbAuthAxios, fbPrivateAxios } from "./index";
+import { fbAuthAxios, fbStepFCAxios } from "./index";
 import { LoginUser, SignUpUser } from "../typings";
+import { stat } from "fs";
+import { error } from "console";
 
 const PREFIX_URL = "v1/accounts:";
 const key = "?key=AIzaSyDGypUSTeUtzlq7FKQGqGC83JJsSSl6dHU";
@@ -25,7 +27,7 @@ export const SignIn = async (loginUser: LoginUser) => {
     console.log("Unexpected error", err);
   }
 };
-export const SignUp = async (signUpUser: SignUpUser) => {
+export const SignUp = async (signUpUser: SignUpUser): Promise<number> => {
   try {
     // firebase SignUp
     const { data, status } = await fbAuthAxios.post(
@@ -36,14 +38,13 @@ export const SignUp = async (signUpUser: SignUpUser) => {
         returnSecureToken: true,
       }
     );
+    //console.log("SignUp", data);
 
-    console.log("SignUp", data);
-
-    //firebase UserInfo
+    //firebase UserInfo -- only when signUp is successful
     localStorage.setItem("idToken", data.idToken);
     const userId = data.localId;
     if (userId && localStorage.getItem("idToken")) {
-      const response = await fbPrivateAxios.post(
+      const { status } = await fbStepFCAxios.post(
         "user",
         {
           userId: userId,
@@ -58,14 +59,16 @@ export const SignUp = async (signUpUser: SignUpUser) => {
           },
         }
       );
-      console.log(response);
+      //console.log(response);
+      return status;
     }
+    return status;
   } catch (err) {
     if (err instanceof Error) {
       // 👉️ err is type Error here
-      console.log(err.message);
+      return 400;
     }
 
-    console.log("Unexpected error", err);
+    return 400;
   }
 };

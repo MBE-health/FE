@@ -15,12 +15,20 @@ import { SignUpSchema } from "../../schema/SignUp";
 import { SignUpUser } from "../../typings";
 
 import { SignUp } from "../../apis/Auth.apis";
+import { stat } from "fs";
 
-function handleRoute(navigate: NavigateFunction) {
+function handleRoute(navigate: NavigateFunction, status: number) {
   if (localStorage.getItem("idToken")) {
-    navigate("/my page");
+    if (status === 201) {
+      // 이메일 계정 가입 성공 O, 그외 기본 추가 정보 입력 O
+      navigate("/onboarding");
+    } else {
+      // 이메일 계정 가입 성공 O, 그외 기본 추가 정보 입력 X
+      navigate("/signup");
+    }
   } else {
-    navigate("/plan");
+    // 이메일 계정 가입 실패
+    navigate("/signup");
   }
 }
 
@@ -28,8 +36,8 @@ const SignUpForm = () => {
   let navigate = useNavigate();
   const onSubmit = async (values: SignUpUser) => {
     console.log(values);
-    await SignUp(values);
-    handleRoute(navigate);
+    const status = await SignUp(values);
+    handleRoute(navigate, status);
   };
 
   const {

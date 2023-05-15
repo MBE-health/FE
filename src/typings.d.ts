@@ -12,3 +12,9 @@ export interface SignUpUser {
   age: number;
   sex: number;
 }
+
+
+export interface onBoardingStep1{
+  height:number;
+  weight:number;
+}

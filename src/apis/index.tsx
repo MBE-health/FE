@@ -7,7 +7,7 @@ const fbAuthAxios = axios.create({
   },
   withCredentials: false,*/
 });
-const fbPrivateAxios = axios.create({
+const fbStepFCAxios = axios.create({
   baseURL: `https://us-central1-mbe-health.cloudfunctions.net/`,
 });
 
@@ -27,4 +27,4 @@ const privateAxios = axios.create({
   withCredentials: true,*/
 });
 
-export { fbAuthAxios, fbPrivateAxios, serverAxios, privateAxios };
+export { fbAuthAxios, fbStepFCAxios, serverAxios, privateAxios };
