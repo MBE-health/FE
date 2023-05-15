@@ -1,10 +1,6 @@
-import { Container, Box, Typography } from "@mui/material";
-import { ReactComponentElement } from "react";
+import { Container, Box } from "@mui/material";
 
-type JSXElement = () => JSX.Element;
 interface AuthContainerProps {
-  //children: React.ReactNode | JSX.Element;
-  //children: string | JSX.Element | JSX.Element[] | JSXElement;
   children: () => JSX.Element;
 }
 
