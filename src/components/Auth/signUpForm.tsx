@@ -14,7 +14,7 @@ import { useFormik } from "formik";
 import { SignUpSchema } from "../../schema/SignUp";
 import { SignUpUser } from "../../typings";
 
-import { SignIn } from "../../apis/Auth.apis";
+import { SignUp } from "../../apis/Auth.apis";
 
 function handleRoute(navigate: NavigateFunction) {
   if (localStorage.getItem("idToken")) {
@@ -24,12 +24,12 @@ function handleRoute(navigate: NavigateFunction) {
   }
 }
 
-const LoginForm = () => {
+const SignUpForm = () => {
   let navigate = useNavigate();
   const onSubmit = async (values: SignUpUser) => {
     console.log(values);
-    //await SignIn(values);
-    //handleRoute(navigate);
+    await SignUp(values);
+    handleRoute(navigate);
   };
 
   const {
@@ -291,4 +291,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default SignUpForm;

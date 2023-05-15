@@ -1,4 +1,4 @@
-import { fbAuthAxios } from "./index";
+import { fbAuthAxios, fbPrivateAxios } from "./index";
 import { LoginUser, SignUpUser } from "../typings";
 
 const PREFIX_URL = "v1/accounts:";
@@ -29,7 +29,7 @@ export const SignUp = async (signUpUser: SignUpUser) => {
   try {
     // firebase SignUp
     const { data, status } = await fbAuthAxios.post(
-      `${PREFIX_URL}accounts:signUp${key}`,
+      `${PREFIX_URL}signUp${key}`,
       {
         email: signUpUser.email,
         password: signUpUser.password,
@@ -40,9 +40,26 @@ export const SignUp = async (signUpUser: SignUpUser) => {
     console.log("SignUp", data);
 
     //firebase UserInfo
-
-    //console.log("SignIn Api", data, status);
     localStorage.setItem("idToken", data.idToken);
+    const userId = data.localId;
+    if (userId && localStorage.getItem("idToken")) {
+      const response = await fbPrivateAxios.post(
+        "user",
+        {
+          userId: userId,
+          name: signUpUser.name,
+          nickname: signUpUser.nickname,
+          age: signUpUser.age,
+          sex: signUpUser.sex,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("idToken")}`,
+          },
+        }
+      );
+      console.log(response);
+    }
   } catch (err) {
     if (err instanceof Error) {
       // 👉️ err is type Error here

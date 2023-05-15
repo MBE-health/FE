@@ -7,6 +7,9 @@ const fbAuthAxios = axios.create({
   },
   withCredentials: false,*/
 });
+const fbPrivateAxios = axios.create({
+  baseURL: `https://us-central1-mbe-health.cloudfunctions.net/`,
+});
 
 const serverAxios = axios.create({
   baseURL: `https://identitytoolkit.googleapis.com/`,
@@ -24,4 +27,4 @@ const privateAxios = axios.create({
   withCredentials: true,*/
 });
 
-export { fbAuthAxios, serverAxios, privateAxios };
+export { fbAuthAxios, fbPrivateAxios, serverAxios, privateAxios };
