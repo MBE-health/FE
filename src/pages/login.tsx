@@ -9,13 +9,14 @@ const Login = () => {
         <Box
           style={{
             backgroundImage: "url(/assets/login/background.png)",
-            backgroundRepeat: "no-repeat",
+            backgroundRepeat: "round",
             backgroundSize: "cover",
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-around",
             padding: "4.5rem 0rem",
           }}
+          borderRadius="1rem"
         >
           <img src="/assets/login/pic.png" alt="logo" />
           <LoginForm />

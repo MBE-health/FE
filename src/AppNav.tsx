@@ -6,6 +6,7 @@ import { Mypage, OnBoarding, Plan, Analyze, Login } from "./pages";
 const AppNav = () => {
   return (
     <Routes>
+      <Route path="/signup" element={<Analyze />} />
       <Route path="/login" element={<Login />} />
       <Route path="/analyze" element={<Analyze />} />
       <Route path="/plan" element={<Plan />} />

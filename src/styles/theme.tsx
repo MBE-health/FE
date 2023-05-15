@@ -8,7 +8,7 @@ export const theme = createTheme({
       main: colors.primary[900],
     },
     secondary: {
-      main: colors.greenAccent[500],
+      main: colors.greenAccent[200],
       light: colors.greenAccent[100],
     },
     background: {
