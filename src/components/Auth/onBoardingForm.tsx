@@ -1,9 +1,9 @@
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import { Typography, Grid, Box } from "@mui/material";
 import { FormikValues } from "formik";
-import { HealthCondition } from "../../apis/Health.apis";
+import { setHealthCondition } from "../../apis/Health.apis";
 import InputField from "../Common/inputField";
-import { MultiStepForm, FormStep } from "../multistep/multiStepForm";
+import { MultiStepForm, FormStep } from "../MultiStep/multiStepForm";
 import { onBoardingBody, onBoardingStrength } from "../../constant/health";
 import { onBoardingProps, healthConditionProps } from "../../typings";
 import { BodySchema, StrengthSchema } from "../../schema/OnBoarding";
@@ -11,15 +11,12 @@ import { BodySchema, StrengthSchema } from "../../schema/OnBoarding";
 function handleRoute(navigate: NavigateFunction, status: number) {
   if (localStorage.getItem("idToken")) {
     if (status === 201) {
-      // 이메일 계정 가입 성공 O, 그외 기본 추가 정보 입력 O
-      navigate("/onboarding");
-    } else {
-      // 이메일 계정 가입 성공 O, 그외 기본 추가 정보 입력 X
-      navigate("/signup");
+      // healthCondition set 성공 0
+      navigate("/plan");
     }
   } else {
     // 이메일 계정 가입 실패
-    navigate("/signup");
+    navigate("/onboarding");
   }
 }
 
@@ -29,9 +26,9 @@ const OnBoardingForm = () => {
     values: FormikValues | healthConditionProps
   ) => {
     console.log(values);
-    const status = await HealthCondition(values);
+    const status = await setHealthCondition(values);
     console.log(status);
-    //handleRoute(navigate, status);
+    handleRoute(navigate, status);
   };
   return (
     <MultiStepForm

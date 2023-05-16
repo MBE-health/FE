@@ -16,15 +16,18 @@ export interface SignUpUser {
 }
 
 export interface onBoardingProps {
+  [index:string]:string;
   typo: string;
   name: string;
   label: string;
   type: string;
   placeholder: string;
+  unit: string;
 }
 
-export interface healthConditionProps extends FormikValues {
+export interface healthConditionProps  {
   //측정연령수: number;
+  [index: string]: number;
   신장: number;
   체중: number;
   체지방율: number;
@@ -45,3 +48,4 @@ export interface sexStateProps {
   //성별구분코드_F: number;
   //성별구분코드_M: number;
 }
+
