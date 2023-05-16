@@ -12,7 +12,6 @@ const InputField: FC<TextInputProps> = ({ name, label, ...props }) => {
 
   return (
     <TextField
-      fullWidth
       label={label}
       {...field}
       {...props}

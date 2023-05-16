@@ -18,3 +18,12 @@ export interface onBoardingStep1{
   height:number;
   weight:number;
 }
+
+
+export interface onBoardingProps {
+  typo: string;
+  name: string;
+  label: string;
+  type: string;
+  placeholder: string;
+}

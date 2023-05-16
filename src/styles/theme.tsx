@@ -1,5 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 import { tokens as colors } from "./colors";
+import { Margin } from "@mui/icons-material";
 
 export const theme = createTheme({
   palette: {
@@ -36,6 +37,8 @@ export const theme = createTheme({
       fontFamily: ["Pretendard Variable", "Pretendard"].join(","),
       fontSize: 20,
       fontWeight: 500,
+      padding: 0,
+      margin: 0,
     },
     h5: {
       fontFamily: ["Pretendard Variable", "Pretendard"].join(","),
