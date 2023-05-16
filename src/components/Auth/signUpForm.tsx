@@ -15,7 +15,6 @@ import { SignUpSchema } from "../../schema/SignUp";
 import { SignUpUser } from "../../typings";
 
 import { SignUp } from "../../apis/Auth.apis";
-import { stat } from "fs";
 
 function handleRoute(navigate: NavigateFunction, status: number) {
   if (localStorage.getItem("idToken")) {

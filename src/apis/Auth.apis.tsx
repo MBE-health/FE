@@ -1,7 +1,5 @@
 import { fbAuthAxios, fbStepFCAxios } from "./index";
 import { LoginUser, SignUpUser } from "../typings";
-import { stat } from "fs";
-import { error } from "console";
 
 const PREFIX_URL = "v1/accounts:";
 const key = "?key=AIzaSyDGypUSTeUtzlq7FKQGqGC83JJsSSl6dHU";
@@ -42,6 +40,10 @@ export const SignUp = async (signUpUser: SignUpUser): Promise<number> => {
 
     //firebase UserInfo -- only when signUp is successful
     localStorage.setItem("idToken", data.idToken);
+
+    // 상태 관리 도입 전까지
+    localStorage.setItem("userId", data.localId);
+
     const userId = data.localId;
     if (userId && localStorage.getItem("idToken")) {
       const { status } = await fbStepFCAxios.post(

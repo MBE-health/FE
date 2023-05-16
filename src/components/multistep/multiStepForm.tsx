@@ -58,7 +58,13 @@ export const MultiStepForm: FC<Props> = ({
       >
         {(formik) => (
           <form onSubmit={formik.handleSubmit}>
-            <Stepper activeStep={stepNumber}>
+            <Stepper
+              activeStep={stepNumber}
+              sx={{
+                justifyContent: "flex-end",
+                padding: "1.5rem 5rem 1.5rem 60%",
+              }}
+            >
               {steps.map((currentStep) => {
                 const label = currentStep.props.stepName;
                 return (

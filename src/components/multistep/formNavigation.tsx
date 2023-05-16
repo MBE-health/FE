@@ -13,12 +13,17 @@ const FormNavigation: FC<Props> = (props) => {
     <div
       style={{
         display: "flex",
-        marginTop: 50,
+        marginTop: 5,
         justifyContent: "space-between",
       }}
     >
       {props.hasPrevious && (
-        <Button variant="contained" type="button" onClick={props.onBackClick}>
+        <Button
+          variant="contained"
+          type="button"
+          onClick={props.onBackClick}
+          sx={{ marginRight: "3rem" }}
+        >
           Back
         </Button>
       )}

@@ -1,3 +1,5 @@
+import { FormikValues } from "formik";
+
 // login애 사용되는 유저 정보
 export interface LoginUser {
   email: string;
@@ -13,17 +15,33 @@ export interface SignUpUser {
   sex: number;
 }
 
-
-export interface onBoardingStep1{
-  height:number;
-  weight:number;
-}
-
-
 export interface onBoardingProps {
   typo: string;
   name: string;
   label: string;
   type: string;
   placeholder: string;
+}
+
+export interface healthConditionProps extends FormikValues {
+  //측정연령수: number;
+  신장: number;
+  체중: number;
+  체지방율: number;
+  BMI: number;
+
+  앉아윗몸앞으로굽히기: number;
+  교차윗몸일으키기: number;
+  왕복오래달리기: number;
+  왕복달리기_10M_4회: number;
+  제자리_멀리뛰기: number;
+  상대악력: number;
+
+  //성별구분코드_F: number;
+  //성별구분코드_M: number;
+}
+
+export interface sexStateProps {
+  //성별구분코드_F: number;
+  //성별구분코드_M: number;
 }

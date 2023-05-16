@@ -1,18 +1,43 @@
-import * as yup from "yup";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import { Typography, Grid, Box } from "@mui/material";
-
+import { FormikValues } from "formik";
+import { HealthCondition } from "../../apis/Health.apis";
 import InputField from "../Common/inputField";
 import { MultiStepForm, FormStep } from "../multistep/multiStepForm";
 import { onBoardingBody, onBoardingStrength } from "../../constant/health";
-import { onBoardingProps } from "../../typings";
+import { onBoardingProps, healthConditionProps } from "../../typings";
 import { BodySchema, StrengthSchema } from "../../schema/OnBoarding";
 
-const onBoardingForm = () => {
+function handleRoute(navigate: NavigateFunction, status: number) {
+  if (localStorage.getItem("idToken")) {
+    if (status === 201) {
+      // 이메일 계정 가입 성공 O, 그외 기본 추가 정보 입력 O
+      navigate("/onboarding");
+    } else {
+      // 이메일 계정 가입 성공 O, 그외 기본 추가 정보 입력 X
+      navigate("/signup");
+    }
+  } else {
+    // 이메일 계정 가입 실패
+    navigate("/signup");
+  }
+}
+
+const OnBoardingForm = () => {
+  const navigate = useNavigate();
+  const handleFormSubmit = async (
+    values: FormikValues | healthConditionProps
+  ) => {
+    console.log(values);
+    const status = await HealthCondition(values);
+    console.log(status);
+    //handleRoute(navigate, status);
+  };
   return (
     <MultiStepForm
       initialValues={{ 키: "", 몸무게: "", 체지방률: "", BMI: "" }}
-      onSubmit={(values) => {
-        alert(JSON.stringify(values, null, 2));
+      onSubmit={(values: FormikValues | healthConditionProps) => {
+        handleFormSubmit(values);
       }}
     >
       <FormStep
@@ -109,4 +134,4 @@ const onBoardingForm = () => {
   );
 };
 
-export default onBoardingForm;
+export default OnBoardingForm;
