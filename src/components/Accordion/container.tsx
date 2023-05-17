@@ -17,9 +17,10 @@ const stepContainer = ({ checkBoxTitle, title }: stepAccordinProps) => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-around",
-            padding: "0rem 2rem",
+            padding: "2rem",
           }}
-          borderRadius="1rem"
+          /*border="5px solid transparent"
+          borderRadius="1rem"*/
         >
           <StepAccordion checkBoxTitle={checkBoxTitle} title={title} />
         </Box>

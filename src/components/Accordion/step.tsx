@@ -54,7 +54,7 @@ const StepAccordion = ({ checkBoxTitle, title }: stepAccordinProps) => {
   });
 
   return (
-    <Accordion sx={{ backgroundColor: "transparent" }}>
+    <Accordion sx={{ backgroundColor: "transparent", boxShadow: "unset" }}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Grid
           container
