@@ -78,7 +78,6 @@ const SelectSection = ({ title, label, data, setData }: SelectProps) => {
                   aria-label="bold"
                   data-type={label}
                   data-value={value}
-                  selected={false}
                 >
                   {name}
                 </ToggleButton>
