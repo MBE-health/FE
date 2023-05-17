@@ -56,13 +56,13 @@
 */
 
 export const type = [
-  { value: "Strength", name: "근력" },
-  { value: "Plyometrics", name: "플라이오메트릭" },
-  { value: "Cardio", name: "유산소" },
-  { value: "Stretching", name: "스트레칭" },
-  { value: "Powerlifting", name: "파워리프팅" },
-  { value: "Strongman", name: "스트롱맨" },
-  { value: "Olympic Weightlifting", name: "올림픽 역도" },
+  { value: "Strength", name: "근력", key: "type" },
+  { value: "Plyometrics", name: "플라이오메트릭", key: "type" },
+  { value: "Cardio", name: "유산소", key: "type" },
+  { value: "Stretching", name: "스트레칭", key: "type" },
+  { value: "Powerlifting", name: "파워리프팅", key: "type" },
+  { value: "Strongman", name: "스트롱맨", key: "type" },
+  { value: "Olympic Weightlifting", name: "올림픽 역도", key: "type" },
 ];
 
 export const body = [
@@ -87,23 +87,23 @@ export const body = [
 ];
 
 export const equipment = [
-  { value: "Bands", name: "밴드" },
-  { value: "Barbell", name: "바벨" },
-  { value: "Kettlebells", name: "케틀벨" },
-  { value: "Dumbbell", name: "덤벨" },
-  { value: "Cable", name: "케이블" },
-  { value: "Machine", name: "머신" },
-  { value: "None", name: "없음" },
-  { value: "Medicine Ball", name: "메디신볼" },
-  { value: "Exercise Ball", name: "운동공" },
-  { value: "Foam Roll", name: "폼롤" },
-  { value: "E-Z Curl Bar", name: "E-Z 컬바" },
+  { value: "Bands", name: "밴드", key: "equipment" },
+  { value: "Barbell", name: "바벨", key: "equipment" },
+  { value: "Kettlebells", name: "케틀벨", key: "equipment" },
+  { value: "Dumbbell", name: "덤벨", key: "equipment" },
+  { value: "Cable", name: "케이블", key: "equipment" },
+  { value: "Machine", name: "머신", key: "equipment" },
+  { value: "None", name: "없음", key: "equipment" },
+  { value: "Medicine Ball", name: "메디신볼", key: "equipment" },
+  { value: "Exercise Ball", name: "운동공", key: "equipment" },
+  { value: "Foam Roll", name: "폼롤", key: "equipment" },
+  { value: "E-Z Curl Bar", name: "E-Z 컬바", key: "equipment" },
 ];
 
 export const level = [
-  { value: "Intermediate", name: "중급" },
-  { value: "Beginner", name: "초급" },
-  { value: "Expert", name: "전문가" },
+  { value: "Intermediate", name: "중급", key: "level" },
+  { value: "Beginner", name: "초급", key: "level" },
+  { value: "Expert", name: "전문가", key: "level" },
 ];
 
 export const exercise = {

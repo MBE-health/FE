@@ -45,6 +45,7 @@ export interface healthConditionProps  {
 }
 
 export interface exerciseConditionProps {
+  [index: string]: string[];
   type: string[];
   body: string[];
   equipment: string[];
@@ -53,5 +54,11 @@ export interface exerciseConditionProps {
 export interface sexStateProps {
   //성별구분코드_F: number;
   //성별구분코드_M: number;
+}
+
+export interface exerciseProps{
+  value:string,
+  key:string,
+  name:string
 }
 

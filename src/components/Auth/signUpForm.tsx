@@ -72,7 +72,7 @@ const SignUpForm = () => {
         alignItems: "flex-start",
       }}
     >
-      <Typography variant="h2" color="main" marginBottom="5rem">
+      <Typography variant="h2" color="secondary.light" marginBottom="5rem">
         Join
       </Typography>
 

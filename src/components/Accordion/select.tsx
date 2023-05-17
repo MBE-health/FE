@@ -1,5 +1,4 @@
 import React from "react";
-import { FormikValues, useFormik } from "formik";
 import {
   Grid,
   Stack,
@@ -9,14 +8,12 @@ import {
   AccordionSummary,
   AccordionDetails,
   Typography,
-  TextField,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { stepContainerProps } from "./container";
-import { onBoarding } from "../../constant/health";
-import { onBoardingProps, exerciseConditionProps } from "../../typings";
-import { StrengthSchema } from "../../schema/OnBoarding";
-import { object } from "yup";
+import SelectSection from "./selectSection";
+import { exercise } from "../../constant/exercise";
+import { exerciseProps, exerciseConditionProps } from "../../typings";
 
 function handleClickCheckbox(
   e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -75,26 +72,31 @@ const SelectAccordion = ({
           borderRadius: "10px",
         }}
       >
-        {onBoarding.map(({ name, label, type, unit }: onBoardingProps) => (
-          <Grid
-            container
-            spacing={5}
-            justifyContent="flex-start"
-            alignItems="center"
-            padding="0"
-          >
-            <Grid item xs={4}>
-              <Typography variant="h4" color="main" textAlign="center">
-                {name}
-              </Typography>
-            </Grid>
-            <Grid item xs={8}>
-              <Stack direction="row" spacing={2} alignItems="center">
-                {type}
-              </Stack>
-            </Grid>
-          </Grid>
-        ))}
+        <SelectSection
+          label="level"
+          title="운동 강도"
+          data={data as exerciseConditionProps}
+          setData={setData}
+        />
+        <SelectSection
+          label="equipment"
+          title="사용 도구"
+          data={data as exerciseConditionProps}
+          setData={setData}
+        />
+        <SelectSection
+          label="body"
+          title="운동 부위"
+          data={data as exerciseConditionProps}
+          setData={setData}
+        />
+        <SelectSection
+          label="type"
+          title="운동 타입"
+          data={data as exerciseConditionProps}
+          setData={setData}
+        />
+
         <Button
           variant="contained"
           type="button"
