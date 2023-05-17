@@ -28,9 +28,9 @@ export interface onBoardingProps {
 export interface healthConditionProps  {
   //측정연령수: number;
   [index: string]: number;
-  신장: number;
-  체중: number;
-  체지방율: number;
+  키: number;
+  몸무게: number;
+  체지방률: number;
   BMI: number;
 
   앉아윗몸앞으로굽히기: number;
@@ -44,6 +44,12 @@ export interface healthConditionProps  {
   //성별구분코드_M: number;
 }
 
+export interface exerciseConditionProps {
+  type: string[];
+  body: string[];
+  equipment: string[];
+  level: string[];
+}
 export interface sexStateProps {
   //성별구분코드_F: number;
   //성별구분코드_M: number;

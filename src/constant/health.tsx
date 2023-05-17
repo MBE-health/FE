@@ -19,6 +19,9 @@
 */
 
 import { onBoardingProps } from "../typings";
+
+
+
 export const onBoardingStrength: onBoardingProps[] = [
   {
     typo: "앉아 윗몸 앞으로 굽히기 (cm)",
@@ -103,4 +106,10 @@ export const onBoardingBody: onBoardingProps[] = [
     unit: "kg/㎡",
     placeholder: "BMI를 입력해주세요.",
   },
+];
+
+
+export const onBoarding: onBoardingProps[] = [
+  ...onBoardingBody,
+  ...onBoardingStrength,
 ];

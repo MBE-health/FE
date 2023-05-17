@@ -1,11 +1,26 @@
 import StepAccordion from "./step";
+import SelectAccordion from "./select";
 import { Container, Box } from "@mui/material";
+import { healthConditionProps, exerciseConditionProps } from "../../typings";
 
-export interface stepAccordinProps {
+export interface stepContainerProps {
   checkBoxTitle: string;
   title: string;
+  data: healthConditionProps | exerciseConditionProps;
 }
-const stepContainer = ({ checkBoxTitle, title }: stepAccordinProps) => {
+export interface setDataProps {
+  setData: any;
+}
+export interface typeProps {
+  type: "form" | "select";
+}
+const StepContainer = ({
+  checkBoxTitle,
+  title,
+  data,
+  setData,
+  type,
+}: stepContainerProps & typeProps & setDataProps) => {
   return (
     <center>
       <Container maxWidth="xl" sx={{ marginBottom: "3rem" }}>
@@ -22,11 +37,26 @@ const stepContainer = ({ checkBoxTitle, title }: stepAccordinProps) => {
           /*border="5px solid transparent"
           borderRadius="1rem"*/
         >
-          <StepAccordion checkBoxTitle={checkBoxTitle} title={title} />
+          {type === "form" && (
+            <StepAccordion
+              checkBoxTitle={checkBoxTitle}
+              title={title}
+              data={data}
+              setData={setData}
+            />
+          )}
+          {type === "select" && (
+            <SelectAccordion
+              title={title}
+              checkBoxTitle={checkBoxTitle}
+              data={data}
+              setData={setData}
+            />
+          )}
         </Box>
       </Container>
     </center>
   );
 };
 
-export default stepContainer;
+export default StepContainer;

@@ -3,6 +3,7 @@ import { FormikValues, useFormik } from "formik";
 import {
   Grid,
   Stack,
+  Button,
   Checkbox,
   Accordion,
   AccordionSummary,
@@ -11,10 +12,11 @@ import {
   TextField,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { stepAccordinProps } from "./container";
-import { onBoardingStrength } from "../../constant/health";
+import { stepContainerProps } from "./container";
+import { onBoarding } from "../../constant/health";
 import { onBoardingProps, healthConditionProps } from "../../typings";
 import { StrengthSchema } from "../../schema/OnBoarding";
+import { object } from "yup";
 
 function handleClickCheckbox(
   e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -22,9 +24,20 @@ function handleClickCheckbox(
   e.stopPropagation();
 }
 
-const StepAccordion = ({ checkBoxTitle, title }: stepAccordinProps) => {
+interface setDataProps {
+  setData: React.Dispatch<React.SetStateAction<healthConditionProps>>;
+}
+
+const StepAccordion = ({
+  checkBoxTitle,
+  title,
+  data,
+  setData,
+}: stepContainerProps & setDataProps) => {
   const onSubmit = async (values: healthConditionProps) => {
     console.log(values);
+
+    setData(values);
     //const status = await SignUp(values);
     //handleRoute(navigate, status);
   };
@@ -38,9 +51,9 @@ const StepAccordion = ({ checkBoxTitle, title }: stepAccordinProps) => {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      신장: 0,
-      체중: 0,
-      체지방율: 0,
+      키: 0,
+      몸무게: 0,
+      체지방률: 0,
       BMI: 0,
       앉아윗몸앞으로굽히기: 0,
       교차윗몸일으키기: 0,
@@ -86,8 +99,12 @@ const StepAccordion = ({ checkBoxTitle, title }: stepAccordinProps) => {
           borderRadius: "10px",
         }}
       >
-        {onBoardingStrength.map(
-          ({ name, label, type, unit }: onBoardingProps) => (
+        <form
+          onSubmit={handleSubmit}
+          autoComplete="off"
+          style={{ width: "100%" }}
+        >
+          {onBoarding.map(({ name, label, type, unit }: onBoardingProps) => (
             <Grid
               container
               spacing={5}
@@ -118,8 +135,25 @@ const StepAccordion = ({ checkBoxTitle, title }: stepAccordinProps) => {
                 </Stack>
               </Grid>
             </Grid>
-          )
-        )}
+          ))}
+          <Button
+            variant="contained"
+            type="submit"
+            fullWidth
+            disableElevation
+            sx={{
+              backgroundColor: "secondary.light",
+              margin: "6.5rem 0 1.5rem",
+              "&:hover": {
+                border: "2px solid secondary.main",
+                borderColor: "secondary.main",
+                backgroundColor: "secondary.main",
+              },
+            }}
+          >
+            저장
+          </Button>
+        </form>
       </AccordionDetails>
     </Accordion>
   );
