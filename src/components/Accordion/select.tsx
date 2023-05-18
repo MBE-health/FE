@@ -13,12 +13,6 @@ import { stepContainerProps, setCompleteProps } from "./container";
 import SelectSection from "./selectSection";
 import { exerciseConditionProps } from "../../typings";
 
-function handleClickCheckbox(
-  e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-) {
-  e.stopPropagation();
-  console.log(e.currentTarget);
-}
 
 interface setDataProps {
   setData: React.Dispatch<React.SetStateAction<exerciseConditionProps>>;

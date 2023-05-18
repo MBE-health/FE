@@ -1,11 +1,24 @@
 import { Box, Button } from "@mui/material";
 import { StepContainer } from "../components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   healthConditionProps,
   exerciseConditionProps,
   keywordProps,
 } from "../typings";
+import { getSearchAgent, getConditionAgent } from "../apis/Sport.apis";
+import { Dictionary } from "@reduxjs/toolkit";
+
+const handleExerciseConditionFormat = (
+  exerciseCondition: exerciseConditionProps
+) => {
+  const list = Object.keys(exerciseCondition).map(function (key) {
+    return exerciseCondition[key];
+  });
+  let data: string[] = [];
+  list.forEach((item) => data.push(...item));
+  return data.join(" or ");
+};
 
 const Plan = () => {
   const [healthCondition, setHealthCondition] = useState<healthConditionProps>({
@@ -38,10 +51,26 @@ const Plan = () => {
   const [isKeywordsCompleted, setIsKeywordsCompleted] =
     useState<boolean>(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log(healthCondition, exerciseCondition, keywords);
     console.log(isHealthCompleted, isExerciseCompleted, isKeywordsCompleted);
+
+    {
+      /*    const search_response = await getSearchAgent(keywords.keywords);
+  console.log(search_response);*/
+    }
+
+    {
+      /*
+  const keywordsString = handleExerciseConditionFormat(exerciseCondition);
+    console.log(keywordsString);
+    const csv_response = await getConditionAgent(keywordsString);
+    console.log(csv_response);
+  
+  */
+    }
   };
+
   return (
     <Box
       style={{
