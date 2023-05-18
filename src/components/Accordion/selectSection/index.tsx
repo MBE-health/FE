@@ -14,9 +14,18 @@ interface SelectProps {
   title: "운동 강도" | "운동 부위" | "사용 도구" | "운동 타입";
   data: exerciseConditionProps;
   setData: React.Dispatch<React.SetStateAction<exerciseConditionProps>>;
+  complete: boolean;
+  setComplete: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SelectSection = ({ title, label, data, setData }: SelectProps) => {
+const SelectSection = ({
+  title,
+  label,
+  data,
+  setData,
+  complete,
+  setComplete,
+}: SelectProps) => {
   const handleFormat = (
     event: React.MouseEvent<HTMLElement>,
     newFormats: string[]
@@ -25,6 +34,7 @@ const SelectSection = ({ title, label, data, setData }: SelectProps) => {
     const isPressed = target.getAttribute("aria-pressed");
     console.log("isPressed?", isPressed);
     const { value, type } = target.dataset;
+    setComplete(false);
 
     if (isPressed === "false") {
       target.style.backgroundColor = "Red";
