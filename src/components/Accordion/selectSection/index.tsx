@@ -32,7 +32,7 @@ const SelectSection = ({
   ) => {
     const target = event.currentTarget;
     const isPressed = target.getAttribute("aria-pressed");
-    console.log("isPressed?", isPressed);
+    //console.log("isPressed?", isPressed);
     const { value, type } = target.dataset;
     setComplete(false);
 

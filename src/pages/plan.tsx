@@ -40,7 +40,7 @@ const Plan = () => {
       />
       <StepContainer
         checkBoxTitle="Step 2"
-        title="추가 정보 입력"
+        title="선호 운동 입력"
         data={exerciseCondition}
         setData={setExerciseCondition}
         type="select"
