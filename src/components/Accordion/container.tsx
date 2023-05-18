@@ -1,20 +1,26 @@
 import { useState } from "react";
 import StepAccordion from "./step";
 import SelectAccordion from "./select";
+import InputAccordion from "./input";
 import { Container, Box } from "@mui/material";
-import { healthConditionProps, exerciseConditionProps } from "../../typings";
+import {
+  healthConditionProps,
+  exerciseConditionProps,
+  keywordProps,
+} from "../../typings";
 
 export interface stepContainerProps {
   checkBoxTitle: string;
   title: string;
-  data: healthConditionProps | exerciseConditionProps;
+  data: healthConditionProps | exerciseConditionProps | keywordProps;
 }
 export interface setDataProps {
   setData: any;
 }
 export interface typeProps {
-  type: "form" | "select";
+  type: "form" | "select" | "input";
 }
+
 const StepContainer = ({
   checkBoxTitle,
   title,
@@ -42,7 +48,7 @@ const StepContainer = ({
             <StepAccordion
               checkBoxTitle={checkBoxTitle}
               title={title}
-              data={data}
+              data={data as healthConditionProps}
               setData={setData}
               /*isCompleted={isCompleted}
               setIsCompleted={setIsCompleted}*/
@@ -52,7 +58,15 @@ const StepContainer = ({
             <SelectAccordion
               title={title}
               checkBoxTitle={checkBoxTitle}
-              data={data}
+              data={data as exerciseConditionProps}
+              setData={setData}
+            />
+          )}
+          {type === "input" && (
+            <InputAccordion
+              title={title}
+              checkBoxTitle={checkBoxTitle}
+              data={data as keywordProps}
               setData={setData}
             />
           )}

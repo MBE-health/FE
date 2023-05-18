@@ -14,20 +14,17 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { stepContainerProps } from "./container";
 import { onBoarding } from "../../constant/health";
-import { onBoardingProps, healthConditionProps } from "../../typings";
-import { StrengthSchema } from "../../schema/OnBoarding";
-import { object } from "yup";
-
-function handleClickCheckbox(
-  e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-) {
-  e.stopPropagation();
-}
+import { onBoardingProps, keywordProps } from "../../typings";
+import { KeywordsSchema } from "../../schema/Keywords";
 
 interface setDataProps {
-  setData: React.Dispatch<React.SetStateAction<healthConditionProps>>;
+  setData: React.Dispatch<React.SetStateAction<keywordProps>>;
 }
 
+interface setCompleteProps {
+  isCompleted: boolean;
+  setIsCompleted: React.Dispatch<React.SetStateAction<string>>;
+}
 
 const StepAccordion = (
   {
@@ -40,7 +37,7 @@ const StepAccordion = (
   stepContainerProps & setDataProps /*& setCompleteProps*/
 ) => {
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
-  const onSubmit = async (values: healthConditionProps) => {
+  const onSubmit = async (values: keywordProps) => {
     console.log(values);
     setIsCompleted(true);
     setData(values);
@@ -61,21 +58,9 @@ const StepAccordion = (
     handleSubmit,
   } = useFormik({
     initialValues: {
-      키: (data as healthConditionProps).키 as number,
-      몸무게: (data as healthConditionProps).몸무게 as number,
-      체지방률: (data as healthConditionProps).체지방률 as number,
-      BMI: (data as healthConditionProps).BMI as number,
-      앉아윗몸앞으로굽히기: (data as healthConditionProps)
-        .앉아윗몸앞으로굽히기 as number,
-      교차윗몸일으키기: (data as healthConditionProps)
-        .교차윗몸일으키기 as number,
-      왕복오래달리기: (data as healthConditionProps).왕복오래달리기 as number,
-      왕복달리기_10M_4회: (data as healthConditionProps)
-        .왕복달리기_10M_4회 as number,
-      제자리_멀리뛰기: (data as healthConditionProps).제자리_멀리뛰기 as number,
-      상대악력: (data as healthConditionProps).상대악력 as number,
+      keywords: "",
     },
-    validationSchema: StrengthSchema,
+    validationSchema: KeywordsSchema,
     onSubmit,
   });
 
@@ -118,39 +103,36 @@ const StepAccordion = (
           style={{ width: "100%" }}
           onChange={handleFormChange}
         >
-          {onBoarding.map(({ name, label, type, unit }: onBoardingProps) => (
-            <Grid
-              container
-              spacing={5}
-              justifyContent="flex-start"
-              alignItems="center"
-              padding="0"
-            >
-              <Grid item xs={4}>
-                <Typography variant="h4" color="main" textAlign="center">
-                  {name}
-                </Typography>
-              </Grid>
-              <Grid item xs={6}>
-                <Stack direction="row" spacing={2} alignItems="center">
-                  <TextField
-                    name={name}
-                    label={label}
-                    type={type}
-                    onChange={handleChange}
-                    // @ts-ignore
-                    value={values[name]}
-                    /*placeholder={question.placeholder}*/
-                    variant="filled"
-                    hiddenLabel
-                    margin="dense"
-                    sx={{ width: "70%" }}
-                  />
-                  <Typography variant="h5">{unit}</Typography>
-                </Stack>
-              </Grid>
+          <Grid
+            container
+            spacing={5}
+            justifyContent="flex-start"
+            alignItems="center"
+            padding="0"
+          >
+            <Grid item xs={4}>
+              <Typography variant="h4" color="main" textAlign="center">
+                운동 키워드
+              </Typography>
             </Grid>
-          ))}
+            <Grid item xs={4}>
+              <Stack direction="row" spacing={2} alignItems="center">
+                <TextField
+                  name="keywords"
+                  label="keywords"
+                  type="text"
+                  onChange={handleChange}
+                  value={values.keywords}
+                  /*placeholder={question.placeholder}*/
+                  variant="filled"
+                  hiddenLabel
+                  margin="dense"
+                  fullWidth
+                />
+              </Stack>
+            </Grid>
+          </Grid>
+
           <Button
             variant="contained"
             type="submit"

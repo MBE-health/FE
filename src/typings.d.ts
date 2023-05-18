@@ -62,3 +62,6 @@ export interface exerciseProps{
   name:string
 }
 
+export interface keywordProps {
+  keywords:string
+};

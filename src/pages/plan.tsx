@@ -1,20 +1,24 @@
 import { Box } from "@mui/material";
 import { StepContainer } from "../components";
 import { useState } from "react";
-import { healthConditionProps, exerciseConditionProps } from "../typings";
+import {
+  healthConditionProps,
+  exerciseConditionProps,
+  keywordProps,
+} from "../typings";
 
 const Plan = () => {
   const [healthCondition, setHealthCondition] = useState<healthConditionProps>({
-    키: 0,
-    몸무게: 0,
-    체지방률: 0,
-    BMI: 0,
-    앉아윗몸앞으로굽히기: 0,
-    교차윗몸일으키기: 0,
-    왕복오래달리기: 0,
-    왕복달리기_10M_4회: 0,
-    제자리_멀리뛰기: 0,
-    상대악력: 234,
+    키: 1,
+    몸무게: 2,
+    체지방률: 3,
+    BMI: 4,
+    앉아윗몸앞으로굽히기: 5,
+    교차윗몸일으키기: 6,
+    왕복오래달리기: 7,
+    왕복달리기_10M_4회: 8,
+    제자리_멀리뛰기: 9,
+    상대악력: 10,
   });
 
   const [exerciseCondition, setExerciseCondition] =
@@ -24,6 +28,10 @@ const Plan = () => {
       level: [],
       equipment: [],
     });
+
+  const [keywords, setKeywords] = useState<keywordProps>({
+    keywords: "",
+  });
 
   return (
     <Box
@@ -44,6 +52,13 @@ const Plan = () => {
         data={exerciseCondition}
         setData={setExerciseCondition}
         type="select"
+      />
+      <StepContainer
+        checkBoxTitle="Step 3"
+        title="운동 키워드 입력"
+        data={keywords}
+        setData={setKeywords}
+        type="input"
       />
     </Box>
   );
