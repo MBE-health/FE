@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { stepContainerProps } from "./container";
+import { stepContainerProps, setCompleteProps } from "./container";
 import SelectSection from "./selectSection";
 import { exerciseConditionProps } from "../../typings";
 
@@ -29,8 +29,9 @@ const SelectAccordion = ({
   title,
   data,
   setData,
-}: stepContainerProps & setDataProps) => {
-  const [isCompleted, setIsCompleted] = useState(false);
+  isCompleted,
+  setIsCompleted,
+}: stepContainerProps & setDataProps & setCompleteProps) => {
   const handleSubmit = async (data: exerciseConditionProps) => {
     setData(data);
     setIsCompleted(true);

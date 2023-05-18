@@ -12,11 +12,10 @@ import {
   TextField,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { stepContainerProps } from "./container";
+import { stepContainerProps, setCompleteProps } from "./container";
 import { onBoarding } from "../../constant/health";
 import { onBoardingProps, healthConditionProps } from "../../typings";
 import { StrengthSchema } from "../../schema/OnBoarding";
-import { object } from "yup";
 
 function handleClickCheckbox(
   e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -28,18 +27,16 @@ interface setDataProps {
   setData: React.Dispatch<React.SetStateAction<healthConditionProps>>;
 }
 
-
-const StepAccordion = (
-  {
-    checkBoxTitle,
-    title,
-    data,
-    setData,
-  }: /*isCompleted,
+const StepAccordion = ({
+  checkBoxTitle,
+  title,
+  data,
+  setData,
+  isCompleted,
+  setIsCompleted,
+}: /*isCompleted,
   setIsCompleted,*/
-  stepContainerProps & setDataProps /*& setCompleteProps*/
-) => {
-  const [isCompleted, setIsCompleted] = useState<boolean>(false);
+stepContainerProps & setDataProps & setCompleteProps) => {
   const onSubmit = async (values: healthConditionProps) => {
     console.log(values);
     setIsCompleted(true);

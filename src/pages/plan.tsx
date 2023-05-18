@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { StepContainer } from "../components";
 import { useState } from "react";
 import {
@@ -20,6 +20,7 @@ const Plan = () => {
     제자리_멀리뛰기: 9,
     상대악력: 10,
   });
+  const [isHealthCompleted, setIsHealthCompleted] = useState<boolean>(false);
 
   const [exerciseCondition, setExerciseCondition] =
     useState<exerciseConditionProps>({
@@ -28,11 +29,19 @@ const Plan = () => {
       level: [],
       equipment: [],
     });
+  const [isExerciseCompleted, setIsExerciseCompleted] =
+    useState<boolean>(false);
 
   const [keywords, setKeywords] = useState<keywordProps>({
     keywords: "",
   });
+  const [isKeywordsCompleted, setIsKeywordsCompleted] =
+    useState<boolean>(false);
 
+  const handleSubmit = () => {
+    console.log(healthCondition, exerciseCondition, keywords);
+    console.log(isHealthCompleted, isExerciseCompleted, isKeywordsCompleted);
+  };
   return (
     <Box
       style={{
@@ -44,6 +53,8 @@ const Plan = () => {
         title="체력 진단 평가 항목"
         data={healthCondition}
         setData={setHealthCondition}
+        isCompleted={isHealthCompleted}
+        setIsCompleted={setIsHealthCompleted}
         type="form"
       />
       <StepContainer
@@ -51,6 +62,8 @@ const Plan = () => {
         title="선호 운동 입력"
         data={exerciseCondition}
         setData={setExerciseCondition}
+        isCompleted={isExerciseCompleted}
+        setIsCompleted={setIsExerciseCompleted}
         type="select"
       />
       <StepContainer
@@ -58,8 +71,28 @@ const Plan = () => {
         title="운동 키워드 입력"
         data={keywords}
         setData={setKeywords}
+        isCompleted={isKeywordsCompleted}
+        setIsCompleted={setIsKeywordsCompleted}
         type="input"
       />
+      <Button
+        variant="contained"
+        type="button"
+        onClick={handleSubmit}
+        fullWidth
+        disableElevation
+        sx={{
+          backgroundColor: "secondary.light",
+          margin: "6.5rem 0 1.5rem",
+          "&:hover": {
+            border: "2px solid secondary.main",
+            borderColor: "secondary.main",
+            backgroundColor: "secondary.main",
+          },
+        }}
+      >
+        운동 플랜 생성하기
+      </Button>
     </Box>
   );
 };

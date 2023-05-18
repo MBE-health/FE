@@ -21,13 +21,20 @@ export interface typeProps {
   type: "form" | "select" | "input";
 }
 
+export interface setCompleteProps {
+  isCompleted: boolean;
+  setIsCompleted: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 const StepContainer = ({
   checkBoxTitle,
   title,
   data,
   setData,
+  isCompleted,
+  setIsCompleted,
   type,
-}: stepContainerProps & typeProps & setDataProps) => {
+}: stepContainerProps & typeProps & setDataProps & setCompleteProps) => {
   return (
     <center>
       <Container maxWidth="xl" sx={{ marginBottom: "3rem" }}>
@@ -50,8 +57,8 @@ const StepContainer = ({
               title={title}
               data={data as healthConditionProps}
               setData={setData}
-              /*isCompleted={isCompleted}
-              setIsCompleted={setIsCompleted}*/
+              isCompleted={isCompleted as boolean}
+              setIsCompleted={setIsCompleted}
             />
           )}
           {type === "select" && (
@@ -60,6 +67,8 @@ const StepContainer = ({
               checkBoxTitle={checkBoxTitle}
               data={data as exerciseConditionProps}
               setData={setData}
+              isCompleted={isCompleted as boolean}
+              setIsCompleted={setIsCompleted}
             />
           )}
           {type === "input" && (
@@ -68,6 +77,8 @@ const StepContainer = ({
               checkBoxTitle={checkBoxTitle}
               data={data as keywordProps}
               setData={setData}
+              isCompleted={isCompleted as boolean}
+              setIsCompleted={setIsCompleted}
             />
           )}
         </Box>

@@ -12,31 +12,24 @@ import {
   TextField,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { stepContainerProps } from "./container";
-import { onBoarding } from "../../constant/health";
-import { onBoardingProps, keywordProps } from "../../typings";
+import { stepContainerProps, setCompleteProps } from "./container";
+import { keywordProps } from "../../typings";
 import { KeywordsSchema } from "../../schema/Keywords";
 
 interface setDataProps {
   setData: React.Dispatch<React.SetStateAction<keywordProps>>;
 }
 
-interface setCompleteProps {
-  isCompleted: boolean;
-  setIsCompleted: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const StepAccordion = (
-  {
-    checkBoxTitle,
-    title,
-    data,
-    setData,
-  }: /*isCompleted,
+const StepAccordion = ({
+  checkBoxTitle,
+  title,
+  data,
+  setData,
+  isCompleted,
+  setIsCompleted,
+}: /*isCompleted,
   setIsCompleted,*/
-  stepContainerProps & setDataProps /*& setCompleteProps*/
-) => {
-  const [isCompleted, setIsCompleted] = useState<boolean>(false);
+stepContainerProps & setDataProps & setCompleteProps) => {
   const onSubmit = async (values: keywordProps) => {
     console.log(values);
     setIsCompleted(true);
