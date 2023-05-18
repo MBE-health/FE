@@ -1,3 +1,4 @@
+import { useState } from "react";
 import StepAccordion from "./step";
 import SelectAccordion from "./select";
 import { Container, Box } from "@mui/material";
@@ -43,6 +44,8 @@ const StepContainer = ({
               title={title}
               data={data}
               setData={setData}
+              /*isCompleted={isCompleted}
+              setIsCompleted={setIsCompleted}*/
             />
           )}
           {type === "select" && (

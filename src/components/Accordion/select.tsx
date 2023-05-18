@@ -32,9 +32,9 @@ const SelectAccordion = ({
 }: stepContainerProps & setDataProps) => {
   const [isCompleted, setIsCompleted] = useState(false);
   const handleSubmit = async (data: exerciseConditionProps) => {
-    console.log("data", data);
     setData(data);
     setIsCompleted(true);
+    console.log("data", data);
     //setData(values);
     //const status = await SignUp(values);
     //handleRoute(navigate, status);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FormikValues, useFormik } from "formik";
 import {
   Grid,
@@ -28,18 +28,32 @@ interface setDataProps {
   setData: React.Dispatch<React.SetStateAction<healthConditionProps>>;
 }
 
-const StepAccordion = ({
-  checkBoxTitle,
-  title,
-  data,
-  setData,
-}: stepContainerProps & setDataProps) => {
+interface setCompleteProps {
+  isCompleted: boolean;
+  setIsCompleted: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const StepAccordion = (
+  {
+    checkBoxTitle,
+    title,
+    data,
+    setData,
+  }: /*isCompleted,
+  setIsCompleted,*/
+  stepContainerProps & setDataProps /*& setCompleteProps*/
+) => {
+  const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const onSubmit = async (values: healthConditionProps) => {
     console.log(values);
-
+    setIsCompleted(true);
     setData(values);
     //const status = await SignUp(values);
     //handleRoute(navigate, status);
+  };
+
+  const handleFormChange = () => {
+    setIsCompleted(false);
   };
   const {
     values,
@@ -78,10 +92,10 @@ const StepAccordion = ({
         >
           <Grid item xs={1}>
             <Checkbox
-              checked={false}
+              checked={isCompleted}
               value="checkedB"
               color="primary"
-              onClick={(e) => handleClickCheckbox(e)}
+              /*onClick={(e) => handleClickCheckbox(e)}*/
             />
           </Grid>
           <Grid item xs={3}>
@@ -103,6 +117,7 @@ const StepAccordion = ({
           onSubmit={handleSubmit}
           autoComplete="off"
           style={{ width: "100%" }}
+          onChange={handleFormChange}
         >
           {onBoarding.map(({ name, label, type, unit }: onBoardingProps) => (
             <Grid
