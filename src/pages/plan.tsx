@@ -7,7 +7,7 @@ import {
   keywordProps,
 } from "../typings";
 import { getSearchAgent, getConditionAgent } from "../apis/Sport.apis";
-import { Dictionary } from "@reduxjs/toolkit";
+import { aprioriRec } from "../apis/Rec.apis";
 
 const handleExerciseConditionFormat = (
   exerciseCondition: exerciseConditionProps
@@ -22,8 +22,8 @@ const handleExerciseConditionFormat = (
 
 const Plan = () => {
   const [healthCondition, setHealthCondition] = useState<healthConditionProps>({
-    키: 1,
-    몸무게: 2,
+    신장: 1,
+    체중: 2,
     체지방률: 3,
     BMI: 4,
     앉아윗몸앞으로굽히기: 5,
@@ -69,6 +69,9 @@ const Plan = () => {
   
   */
     }
+
+    const response = await aprioriRec(healthCondition);
+    console.log(response);
   };
 
   return (

@@ -28,8 +28,8 @@ export interface onBoardingProps {
 export interface healthConditionProps  {
   //측정연령수: number;
   [index: string]: number;
-  키: number;
-  몸무게: number;
+  신장: number;
+  체중: number;
   체지방률: number;
   BMI: number;
 

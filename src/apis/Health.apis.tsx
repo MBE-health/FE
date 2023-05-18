@@ -25,3 +25,4 @@ export const setHealthCondition = async (
     return 400;
   }
 };
+

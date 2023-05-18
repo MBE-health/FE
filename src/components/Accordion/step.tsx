@@ -58,8 +58,8 @@ stepContainerProps & setDataProps & setCompleteProps) => {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      키: (data as healthConditionProps).키 as number,
-      몸무게: (data as healthConditionProps).몸무게 as number,
+      신장: (data as healthConditionProps).신장 as number,
+      체중: (data as healthConditionProps).체중 as number,
       체지방률: (data as healthConditionProps).체지방률 as number,
       BMI: (data as healthConditionProps).BMI as number,
       앉아윗몸앞으로굽히기: (data as healthConditionProps)

@@ -76,16 +76,16 @@ export const onBoardingStrength: onBoardingProps[] = [
 export const onBoardingBody: onBoardingProps[] = [
   {
     typo: "키 (cm)",
-    name: "키",
-    label: "키",
+    name: "신장",
+    label: "신장",
     type: "number",
     unit: "cm",
     placeholder: "키를 입력해주세요.",
   },
   {
     typo: "몸무게 (kg)",
-    name: "몸무게",
-    label: "몸무게",
+    name: "체중",
+    label: "체중",
     type: "number",
     unit: "kg",
     placeholder: "몸무게를 입력해주세요.",
