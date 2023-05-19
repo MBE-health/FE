@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-const Analyze = () => {
+const Routine = () => {
   return (
     <Box style={{ backgroundImage: "url(/assets/background.png)" }}>
       analyze
@@ -8,4 +8,4 @@ const Analyze = () => {
   );
 };
 
-export default Analyze;
+export default Routine;

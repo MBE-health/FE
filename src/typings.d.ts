@@ -65,3 +65,23 @@ export interface exerciseProps{
 export interface keywordProps {
   keywords:string
 };
+export interface recDataProps {
+  ex: recExProps;
+  group_num: number;
+}
+
+export interface recExProps {
+  step_1: stepProps;
+  step_2: stepProps;
+  step_3: stepProps;
+}
+
+export interface stepProps {
+  exercise_list: string[] ;
+  time: number;
+}
+export interface recResProps {
+  data: recDataProps | null;
+  status: number;
+}
+

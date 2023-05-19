@@ -1,14 +1,26 @@
+import { useEffect, useState } from "react";
+import { NavigateFunction, useNavigate } from "react-router-dom";
+
 import { Box, Button } from "@mui/material";
 import { StepContainer } from "../components";
-import { useEffect, useState } from "react";
 import {
   healthConditionProps,
   exerciseConditionProps,
   keywordProps,
+  recResProps,
 } from "../typings";
 import { getSearchAgent, getConditionAgent } from "../apis/Sport.apis";
-import { aprioriRec } from "../apis/Rec.apis";
+import { aprioriRec, getRec } from "../apis/Rec.apis";
 
+function handleRoute(navigate: NavigateFunction, response: recResProps) {
+  console.log(response);
+  if (response.data && response.status !== 400) {
+    navigate("/routine", {
+      // props로 받는 list 스테이트를 넘겨준다.
+      state: { ...response.data },
+    });
+  }
+}
 const handleExerciseConditionFormat = (
   exerciseCondition: exerciseConditionProps
 ) => {
@@ -21,6 +33,7 @@ const handleExerciseConditionFormat = (
 };
 
 const Plan = () => {
+  const navigate = useNavigate();
   const [healthCondition, setHealthCondition] = useState<healthConditionProps>({
     신장: 1,
     체중: 2,
@@ -70,8 +83,12 @@ const Plan = () => {
   */
     }
 
-    const response = await aprioriRec(healthCondition);
-    console.log(response);
+    {
+      /*const response = await aprioriRec(healthCondition);
+  console.log(response);*/
+    }
+    const response = await getRec(healthCondition, isHealthCompleted);
+    handleRoute(navigate, response as recResProps);
   };
 
   return (

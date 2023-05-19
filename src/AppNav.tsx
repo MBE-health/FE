@@ -6,7 +6,7 @@ import {
   Mypage,
   OnBoarding,
   Plan,
-  Analyze,
+  Routine,
   Login,
   SignUp,
 } from "./pages";
@@ -14,10 +14,10 @@ import {
 const AppNav = () => {
   return (
     <Routes>
+      <Route path="/routine" element={<Routine />} />
       <Route path="/onboarding" element={<OnBoarding />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/analyze" element={<Analyze />} />
       <Route path="/plan" element={<Plan />} />
       <Route path="/my page" element={<Mypage />} />
       <Route path="/" element={<Home />} />
