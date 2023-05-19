@@ -26,7 +26,7 @@ export const theme = createTheme({
     h2: {
       fontFamily: ["Pretendard Variable", "Pretendard"].join(","),
       fontSize: 32,
-      fontWeight: 600, //semi - bold
+      fontWeight: 500, //semi - bold
     },
     h3: {
       fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
