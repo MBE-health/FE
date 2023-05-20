@@ -77,7 +77,7 @@ export interface recExProps {
 }
 
 export interface stepProps {
-  exercise_list: string[] ;
+  exercise_list: string[] | string;
   time: number;
 }
 export interface recResProps {
@@ -85,3 +85,4 @@ export interface recResProps {
   status: number;
 }
 
+export type selectedPlanProps = recExProps | null

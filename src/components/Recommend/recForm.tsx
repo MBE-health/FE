@@ -1,16 +1,20 @@
 import { Box, Checkbox, Stack } from "@mui/material";
-import { recDataProps } from "../../typings";
+import { recDataProps, selectedPlanProps } from "../../typings";
 import { useState } from "react";
 
-const RecForm = (props: { routines: recDataProps }) => {
-  const [selected, setSelected] = useState<number | null>(null);
-  const {
-    routines: { ex, group_num },
-  } = props;
+interface setRecFormProps {
+  routines: recDataProps;
+  data: selectedPlanProps;
+  setData: React.Dispatch<React.SetStateAction<selectedPlanProps | null>>;
+}
+
+const RecForm = ({ routines, data, setData }: setRecFormProps) => {
+  const { ex, group_num } = routines;
   const ex_cnt = Array.from(
     { length: ex.step_1.exercise_list.length },
     (v, i) => i
   );
+  const [selected, setSelected] = useState<number | null>(null);
 
   const handleChange = (
     idx: number
@@ -18,6 +22,21 @@ const RecForm = (props: { routines: recDataProps }) => {
   ) => {
     //console.log(/*event.target.checked, */ idx);
     setSelected(idx);
+    const data: selectedPlanProps = {
+      step_1: {
+        exercise_list: ex.step_1.exercise_list[idx],
+        time: ex.step_1.time,
+      },
+      step_2: {
+        exercise_list: ex.step_2.exercise_list[idx],
+        time: ex.step_2.time,
+      },
+      step_3: {
+        exercise_list: ex.step_3.exercise_list[idx],
+        time: ex.step_3.time,
+      },
+    };
+    setData(data);
   };
   return (
     <Box

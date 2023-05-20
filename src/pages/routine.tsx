@@ -1,19 +1,47 @@
 import { Location, useLocation } from "react-router-dom";
-import { Box, Typography, Container } from "@mui/material";
+import { Button, Typography, Container } from "@mui/material";
 import { RecForm } from "../components";
-import { recDataProps } from "../typings";
+import { recDataProps, selectedPlanProps } from "../typings";
+import { useState } from "react";
 const Routine = () => {
   // state 취득
   const location = useLocation();
   // location.state로 접근해서 필요한 데이터 사용
   const recData: recDataProps = location.state;
+  const [selectedPlan, setSelectedPlan] = useState<selectedPlanProps | null>(
+    null
+  );
+
+  const handleSubmit = () => {
+    console.log("submit");
+    console.log(selectedPlan);
+  };
   return (
     <Container maxWidth="xl">
       <Typography variant="h2">추천 플랜 선택하기</Typography>
-      <RecForm routines={recData} />
-      {/*<Box style={{ backgroundImage: "url(/assets/background.png)" }}>
-      analyze
-  </Box>*/}
+      <RecForm
+        routines={recData}
+        setData={setSelectedPlan}
+        data={selectedPlan}
+      />
+      <Button
+        variant="contained"
+        type="button"
+        onClick={handleSubmit}
+        fullWidth
+        disableElevation
+        sx={{
+          backgroundColor: "secondary.light",
+          margin: "6.5rem 0 1.5rem",
+          "&:hover": {
+            border: "2px solid secondary.main",
+            borderColor: "secondary.main",
+            backgroundColor: "secondary.main",
+          },
+        }}
+      >
+        운동 플랜 등록하기
+      </Button>
     </Container>
   );
 };
