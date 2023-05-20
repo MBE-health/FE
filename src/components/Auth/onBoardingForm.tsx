@@ -32,7 +32,7 @@ const OnBoardingForm = () => {
   };
   return (
     <MultiStepForm
-      initialValues={{ 키: "", 몸무게: "", 체지방률: "", BMI: "" }}
+      initialValues={{ 신장: "", 체중: "", 체지방률: "", BMI: "" }}
       onSubmit={(values: FormikValues | healthConditionProps) => {
         handleFormSubmit(values);
       }}

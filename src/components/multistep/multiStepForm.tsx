@@ -81,6 +81,8 @@ export const MultiStepForm: FC<Props> = ({
               isLastStep={isLastStep}
               hasPrevious={stepNumber > 0}
               onBackClick={() => previousStep(formik.values)}
+              onNextClick={() => nextStep(formik.values)}
+              handleSubmit={handleSubmit}
             />
           </form>
         )}

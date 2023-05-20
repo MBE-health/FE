@@ -6,9 +6,12 @@ interface Props {
   hasPrevious?: boolean;
   onBackClick: (values: FormikValues) => void;
   isLastStep: boolean;
+  handleSubmit: any;
+  onNextClick: any;
 }
 
 const FormNavigation: FC<Props> = (props) => {
+  console.log(props);
   return (
     <div
       style={{
@@ -27,7 +30,12 @@ const FormNavigation: FC<Props> = (props) => {
           Back
         </Button>
       )}
-      <Button type="submit" color="primary" variant="contained">
+      <Button
+        type="submit"
+        color="primary"
+        variant="contained"
+        onClick={props.isLastStep ? props.handleSubmit : props.onNextClick}
+      >
         {props.isLastStep ? "Submit" : "Next"}
       </Button>
     </div>

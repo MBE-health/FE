@@ -3,7 +3,7 @@ import { healthConditionProps, recResProps } from "../typings";
 import { setHealthCondition } from "./Health.apis";
 import { AIAxios } from "./index";
 
-export const aprioriRec = async (healthConditon: healthConditionProps) => {
+export const aprioriRec = async (healthCondition: healthConditionProps) => {
   const PREFIX_URL = "/non_rec";
   try {
     const age = 50;
@@ -12,11 +12,12 @@ export const aprioriRec = async (healthConditon: healthConditionProps) => {
       측정연령수: age,
       성별구분코드_F: isFemale(sex),
       성별구분코드_M: isMale(sex),
-      ...healthConditon,
+      ...healthCondition,
     };
     //console.log(health);
     const { data, status } = await AIAxios.post(`${PREFIX_URL}`, health);
     console.log("aprioriRec Api", data, status);
+
     return { data, status };
   } catch (err) {
     if (err instanceof Error) {
@@ -26,7 +27,6 @@ export const aprioriRec = async (healthConditon: healthConditionProps) => {
     return { data: [], status: 400 };
   }
 };
-
 
 export const promptRec = async (
   grade: number,
@@ -63,7 +63,24 @@ export const getRec = async (
   try {
     if (healthCondition) {
       // healthCondition update
-      const response = await setHealthCondition(healthCondition);
+      const age = 50;
+      const sex = 0;
+      const health = {
+        측정연령수: age,
+        성별구분코드_F: isFemale(sex),
+        성별구분코드_M: isMale(sex),
+        ...healthCondition,
+        grade: undefined,
+        createdAt: new Date().toISOString().substring(0, 10).replace(/-/g, ""),
+      };
+      if (health) {
+        const PREFIX_URL = "/grade";
+        const { data } = await AIAxios.post(`${PREFIX_URL}`, health);
+        health["grade"] = data;
+      }
+      const response = await setHealthCondition({
+        ...health,
+      });
       console.log(response);
       if (response === 201) {
         // aprior 추천
@@ -84,7 +101,6 @@ export const getRec = async (
   return { data: null, status: 400 };
 };
 
-
 export const getTotalRec = async (
   healthCondition: healthConditionProps,
   search_response: string[],
@@ -94,20 +110,35 @@ export const getTotalRec = async (
   try {
     if (healthCondition) {
       // healthCondition update
-      const response = await setHealthCondition(healthCondition);
-      console.log(response);
+      const age = 50;
+      const sex = 0;
+      const health = {
+        측정연령수: age,
+        성별구분코드_F: isFemale(sex),
+        성별구분코드_M: isMale(sex),
+        ...healthCondition,
+        grade: undefined,
+        createdAt: new Date().toISOString().substring(0, 10).replace(/-/g, ""),
+      };
+      if (health) {
+        const PREFIX_URL = "/grade";
+        const { data } = await AIAxios.post(`${PREFIX_URL}`, health);
+        health["grade"] = data;
+      }
+      const response = await setHealthCondition({
+        ...health,
+      });
       if (response === 201) {
         // langchin agent 추천
         const response = await promptRec(grade, search_response, csv_response);
         console.log(response);
-        return response!
+        return response!;
       } else {
         return { data: null, status: 400 };
       }
-
     }
   } catch (error) {
-    return  { data: null, status: 400 };
+    return { data: null, status: 400 };
   }
   return { data: null, status: 400 };
 };
