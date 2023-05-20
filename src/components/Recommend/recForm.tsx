@@ -1,7 +1,9 @@
-import { Box, Typography, Container } from "@mui/material";
+import { Box, Checkbox, Stack } from "@mui/material";
 import { recDataProps } from "../../typings";
+import { useState } from "react";
 
 const RecForm = (props: { routines: recDataProps }) => {
+  const [selected, setSelected] = useState<number | null>(null);
   const {
     routines: { ex, group_num },
   } = props;
@@ -9,6 +11,14 @@ const RecForm = (props: { routines: recDataProps }) => {
     { length: ex.step_1.exercise_list.length },
     (v, i) => i
   );
+
+  const handleChange = (
+    idx: number
+    /*event: React.ChangeEvent<HTMLInputElement>*/
+  ) => {
+    //console.log(/*event.target.checked, */ idx);
+    setSelected(idx);
+  };
   return (
     <Box
       style={{
@@ -16,25 +26,31 @@ const RecForm = (props: { routines: recDataProps }) => {
         backgroundRepeat: "round",
         backgroundSize: "cover",
         display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-around",
-        padding: "4.5rem 0rem",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        padding: "8.8rem 15rem",
       }}
       borderRadius="1rem"
     >
-      Recommend Form
       {ex_cnt.map((idx) => (
-        <Box>
-          <div>
-            준비운동 : {ex.step_1.exercise_list[idx]} / {ex.step_1.time}
-          </div>
-          <div>
-            본운동 : {ex.step_2.exercise_list[idx]} / {ex.step_2.time}
-          </div>
-          <div>
-            마무리운동 : {ex.step_3.exercise_list[idx]} / {ex.step_3.time}
-          </div>
-        </Box>
+        <Stack direction="row">
+          <Checkbox
+            checked={selected === idx ? true : false}
+            onChange={() => handleChange(idx)}
+          />
+          <Box>추천 플랜 {idx + 1}</Box>
+          <Box>
+            <div>
+              준비운동 : {ex.step_1.exercise_list[idx]} / {ex.step_1.time}
+            </div>
+            <div>
+              본운동 : {ex.step_2.exercise_list[idx]} / {ex.step_2.time}
+            </div>
+            <div>
+              마무리운동 : {ex.step_3.exercise_list[idx]} / {ex.step_3.time}
+            </div>
+          </Box>
+        </Stack>
       ))}
     </Box>
   );
