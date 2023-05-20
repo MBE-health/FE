@@ -55,7 +55,12 @@ const RecForm = ({ routines, data, setData }: setRecFormProps) => {
     >
       <center>
         {ex_cnt.map((idx) => (
-          <Box display="flex" flexDirection="row" margin="3rem 0rem">
+          <Box
+            display="flex"
+            flexDirection="row"
+            margin="3rem 0rem"
+            width="fit-content"
+          >
             <Checkbox
               checked={selected === idx ? true : false}
               onChange={() => handleChange(idx)}
