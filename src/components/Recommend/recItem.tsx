@@ -16,7 +16,7 @@ const RecItem = ({ idx, exercise }: RecItemProps) => {
           display="flex"
           flexDirection="row"
           justifyContent="space-between"
-          width="30rem"
+          width="40rem"
           padding="0.5rem 0rem"
           borderBottom="1px solid #C4C4C4"
         >
@@ -36,7 +36,7 @@ const RecItem = ({ idx, exercise }: RecItemProps) => {
           display="flex"
           flexDirection="row"
           justifyContent="space-between"
-          width="30rem"
+          width="40rem"
           padding="0.5rem 0rem"
           borderBottom="1px solid #C4C4C4"
         >
@@ -56,7 +56,7 @@ const RecItem = ({ idx, exercise }: RecItemProps) => {
           display="flex"
           flexDirection="row"
           justifyContent="space-between"
-          width="30rem"
+          width="40rem"
           padding="0.5rem 0rem"
           borderBottom="1px solid #C4C4C4"
         >

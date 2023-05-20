@@ -10,8 +10,7 @@ import {
   recResProps,
 } from "../typings";
 import { getSearchAgent, getConditionAgent } from "../apis/Sport.apis";
-import { aprioriRec, getRec } from "../apis/Rec.apis";
-
+import { aprioriRec, getRec, getTotalRec } from "../apis/Rec.apis";
 
 function handleRoute(navigate: NavigateFunction, response: recResProps) {
   console.log(response);
@@ -76,10 +75,7 @@ const Plan = () => {
 
     {
       /*
-  const keywordsString = handleExerciseConditionFormat(exerciseCondition);
-    console.log(keywordsString);
-    const csv_response = await getConditionAgent(keywordsString);
-    console.log(csv_response);
+;
   
   */
     }
@@ -88,8 +84,35 @@ const Plan = () => {
       /*const response = await aprioriRec(healthCondition);
   console.log(response);*/
     }
-    const response = await getRec(healthCondition, isHealthCompleted);
-    handleRoute(navigate, response as recResProps);
+
+    const grade = 1;
+    let search_response = [];
+    let csv_response = [];
+    if (isHealthCompleted) {
+      if (isKeywordsCompleted) {
+        search_response = (await getSearchAgent(keywords.keywords)).data
+          .exercise;
+        console.log(search_response);
+      }
+      if (isExerciseCompleted) {
+        const keywordsString = handleExerciseConditionFormat(exerciseCondition);
+        console.log(keywordsString);
+        csv_response = (await getConditionAgent(keywordsString)).data.exercise;
+        console.log(csv_response);
+      }
+
+      console.log(search_response.length, csv_response.length);
+      const response =
+        search_response.length > 0 || csv_response.length > 0
+          ? await getTotalRec(
+              healthCondition,
+              search_response,
+              csv_response,
+              grade
+            )
+          : await getRec(healthCondition);
+      handleRoute(navigate, response as recResProps);
+    }
   };
 
   return (

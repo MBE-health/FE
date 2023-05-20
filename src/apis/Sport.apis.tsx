@@ -12,9 +12,9 @@ export const getSearchAgent = async (keyword: string) => {
   } catch (err) {
     if (err instanceof Error) {
       // 👉️ err is type Error here
-      return 400;
+      return { data: null, status: 400 };
     }
-    return 400;
+    return { data: null, status: 400 };
   }
 };
 
@@ -29,8 +29,8 @@ export const getConditionAgent = async (keywords: string) => {
   } catch (err) {
     if (err instanceof Error) {
       // 👉️ err is type Error here
-      return 400;
+      return { data: null, status: 400 };
     }
-    return 400;
+    return { data: null, status: 400 };
   }
 };

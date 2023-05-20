@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { Box, Checkbox, Stack } from "@mui/material";
-import { recDataProps, selectedPlanProps } from "../../typings";
+import { recExProps, selectedPlanProps } from "../../typings";
 import RecItem from "./recItem";
 
 interface setRecFormProps {
-  routines: recDataProps;
+  routines: recExProps;
   data: selectedPlanProps;
   setData: React.Dispatch<React.SetStateAction<selectedPlanProps | null>>;
 }
 
 const RecForm = ({ routines, data, setData }: setRecFormProps) => {
-  const { ex, group_num } = routines;
+  const { step_1, step_2, step_3 } = routines;
   const ex_cnt = Array.from(
-    { length: ex.step_1.exercise_list.length },
+    { length: step_1.exercise_list.length },
     (v, i) => i
   );
   const [selected, setSelected] = useState<number | null>(null);
@@ -25,16 +25,16 @@ const RecForm = ({ routines, data, setData }: setRecFormProps) => {
     setSelected(idx);
     const data: selectedPlanProps = {
       step_1: {
-        exercise_list: ex.step_1.exercise_list[idx],
-        time: ex.step_1.time,
+        exercise_list: step_1.exercise_list[idx],
+        time: step_1.time,
       },
       step_2: {
-        exercise_list: ex.step_2.exercise_list[idx],
-        time: ex.step_2.time,
+        exercise_list: step_2.exercise_list[idx],
+        time: step_2.time,
       },
       step_3: {
-        exercise_list: ex.step_3.exercise_list[idx],
-        time: ex.step_3.time,
+        exercise_list: step_3.exercise_list[idx],
+        time: step_3.time,
       },
       createdAt: new Date().toISOString().substring(0, 10).replace(/-/g, ""),
     };
@@ -65,7 +65,7 @@ const RecForm = ({ routines, data, setData }: setRecFormProps) => {
               checked={selected === idx ? true : false}
               onChange={() => handleChange(idx)}
             />
-            <RecItem idx={idx} exercise={ex} />
+            <RecItem idx={idx} exercise={{ step_1, step_2, step_3 }} />
           </Box>
         ))}
       </center>

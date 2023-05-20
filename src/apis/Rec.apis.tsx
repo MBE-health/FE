@@ -27,14 +27,41 @@ export const aprioriRec = async (healthConditon: healthConditionProps) => {
   }
 };
 
+
+export const promptRec = async (
+  grade: number,
+  search_response: string[],
+  csv_response: string[]
+) => {
+  const PREFIX_URL = "/total_rec";
+  const data = {
+    keywords_ex: search_response,
+    condition_ex: csv_response,
+  };
+  console.log(data);
+  try {
+    if (data) {
+      const response = await AIAxios.post(`${PREFIX_URL}?grade=${grade}`, data);
+      console.log("prompt result", response);
+      return response;
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      // 👉️ err is type Error here
+      return { data: null, status: 400 };
+    }
+    return { data: null, status: 400 };
+  }
+};
+
 export const getRec = async (
-  healthCondition: healthConditionProps,
-  isHealthCompleted: boolean
-  /*isExerciseCompleted: boolean,
+  healthCondition: healthConditionProps
+  /* isHealthCompleted: boolean
+ isExerciseCompleted: boolean,
   isKeywordsCompleted: boolean*/
 ): Promise<recResProps> => {
   try {
-    if (healthCondition && isHealthCompleted) {
+    if (healthCondition) {
       // healthCondition update
       const response = await setHealthCondition(healthCondition);
       console.log(response);
@@ -56,3 +83,36 @@ export const getRec = async (
   }
   return { data: null, status: 400 };
 };
+
+
+export const getTotalRec = async (
+  healthCondition: healthConditionProps,
+  search_response: string[],
+  csv_response: string[],
+  grade: number
+): Promise<recResProps> => {
+  try {
+    if (healthCondition) {
+      // healthCondition update
+      const response = await setHealthCondition(healthCondition);
+      console.log(response);
+      if (response === 201) {
+        // langchin agent 추천
+        const response = await promptRec(grade, search_response, csv_response);
+        console.log(response);
+        return response!
+      } else {
+        return { data: null, status: 400 };
+      }
+
+    }
+  } catch (error) {
+    return  { data: null, status: 400 };
+  }
+  return { data: null, status: 400 };
+};
+
+
+
+
+;
