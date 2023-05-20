@@ -63,7 +63,7 @@ export const getRec = async (
   try {
     if (healthCondition) {
       // healthCondition update
-      const age = 50;
+      const age = 50; // 수정 필요
       const sex = 0;
       const health = {
         측정연령수: age,
