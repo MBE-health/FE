@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { Box, Checkbox, Stack } from "@mui/material";
 import { recDataProps, selectedPlanProps } from "../../typings";
-import { useState } from "react";
 
 interface setRecFormProps {
   routines: recDataProps;
@@ -35,6 +35,7 @@ const RecForm = ({ routines, data, setData }: setRecFormProps) => {
         exercise_list: ex.step_3.exercise_list[idx],
         time: ex.step_3.time,
       },
+      createdAt: new Date().toISOString().substring(0, 10).replace(/-/g, ""),
     };
     setData(data);
   };

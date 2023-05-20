@@ -12,6 +12,7 @@ import {
 import { getSearchAgent, getConditionAgent } from "../apis/Sport.apis";
 import { aprioriRec, getRec } from "../apis/Rec.apis";
 
+
 function handleRoute(navigate: NavigateFunction, response: recResProps) {
   console.log(response);
   if (response.data && response.status !== 400) {

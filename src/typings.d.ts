@@ -74,6 +74,7 @@ export interface recExProps {
   step_1: stepProps;
   step_2: stepProps;
   step_3: stepProps;
+  createdAt?:string;
 }
 
 export interface stepProps {

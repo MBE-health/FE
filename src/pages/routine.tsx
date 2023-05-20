@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { Location, useLocation } from "react-router-dom";
 import { Button, Typography, Container } from "@mui/material";
 import { RecForm } from "../components";
 import { recDataProps, selectedPlanProps } from "../typings";
-import { useState } from "react";
+import { postPlan } from "../apis/Plan.apis";
 const Routine = () => {
   // state 취득
   const location = useLocation();
@@ -15,6 +16,7 @@ const Routine = () => {
   const handleSubmit = () => {
     console.log("submit");
     console.log(selectedPlan);
+    postPlan(selectedPlan);
   };
   return (
     <Container maxWidth="xl">
