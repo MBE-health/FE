@@ -42,8 +42,8 @@ export const theme = createTheme({
     },
     h5: {
       fontFamily: ["Pretendard Variable", "Pretendard"].join(","),
-      fontSize: 18,
-      fontWeight: 500, //medium
+      fontSize: 16,
+      fontWeight: 400, //regular
     },
     h6: {
       fontFamily: ["Pretendard Variable", "Pretendard"].join(","),

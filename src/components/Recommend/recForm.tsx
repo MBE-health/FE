@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Box, Checkbox, Stack } from "@mui/material";
 import { recDataProps, selectedPlanProps } from "../../typings";
+import RecItem from "./recItem";
 
 interface setRecFormProps {
   routines: recDataProps;
@@ -52,26 +53,17 @@ const RecForm = ({ routines, data, setData }: setRecFormProps) => {
       }}
       borderRadius="1rem"
     >
-      {ex_cnt.map((idx) => (
-        <Stack direction="row">
-          <Checkbox
-            checked={selected === idx ? true : false}
-            onChange={() => handleChange(idx)}
-          />
-          <Box>추천 플랜 {idx + 1}</Box>
-          <Box>
-            <div>
-              준비운동 : {ex.step_1.exercise_list[idx]} / {ex.step_1.time}
-            </div>
-            <div>
-              본운동 : {ex.step_2.exercise_list[idx]} / {ex.step_2.time}
-            </div>
-            <div>
-              마무리운동 : {ex.step_3.exercise_list[idx]} / {ex.step_3.time}
-            </div>
+      <center>
+        {ex_cnt.map((idx) => (
+          <Box display="flex" flexDirection="row" margin="3rem 0rem">
+            <Checkbox
+              checked={selected === idx ? true : false}
+              onChange={() => handleChange(idx)}
+            />
+            <RecItem idx={idx} exercise={ex} />
           </Box>
-        </Stack>
-      ))}
+        ))}
+      </center>
     </Box>
   );
 };
