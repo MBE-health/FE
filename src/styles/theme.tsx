@@ -1,12 +1,12 @@
 import { createTheme } from "@mui/material/styles";
 import { tokens as colors } from "./colors";
-import { Margin } from "@mui/icons-material";
 
 export const theme = createTheme({
   palette: {
     // palette values for light mode
     primary: {
       main: colors.primary[900],
+      dark: colors.primary[600],
     },
     secondary: {
       main: colors.greenAccent[200],
