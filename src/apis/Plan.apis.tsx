@@ -4,11 +4,11 @@ import { selectedPlanProps } from "../typings";
 const PREFIX_URL = "/plan";
 
 export const postPlan = async (plan: selectedPlanProps) => {
-  const tempUserId = "a9wVB5D0EfVSPJ32hZqHOTq9GBI3"; //수정 필요
+  const userId = localStorage.getItem("userId"); //수정 필요
   try {
     const { status } = await fbStepFCAxios.post(
       `user${PREFIX_URL}`,
-      { userId: tempUserId, ...plan },
+      { userId: userId, ...plan },
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("idToken")}`,
@@ -22,5 +22,30 @@ export const postPlan = async (plan: selectedPlanProps) => {
       return 400;
     }
     return 400;
+  }
+};
+
+export const getRecentPlan = async () => {
+  //console.log(data);
+  const PREFIX_URL = "/plan";
+  const userId = localStorage.getItem("userId"); //수정 필요
+  try {
+    const { data, status } = await fbStepFCAxios.get(
+      `user${PREFIX_URL}/${userId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("idToken")}`,
+        },
+      }
+    );
+    //console.log(data[0], status);
+    return { data: data[0], status };
+    //return status;
+  } catch (err) {
+    if (err instanceof Error) {
+      // 👉️ err is type Error here
+      return { data: null, status: 400 };
+    }
+    return { data: null, status: 400 };
   }
 };

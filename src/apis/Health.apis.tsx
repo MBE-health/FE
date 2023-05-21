@@ -6,8 +6,12 @@ const PREFIX_URL = "/user";
 export const setHealthCondition = async (
   healthCondition: healthConditionProps | FormikValues
 ) => {
-  const tempUserId = "a9wVB5D0EfVSPJ32hZqHOTq9GBI3"; // 수정 필요
-  const data = { userId: tempUserId, healthCondition };
+  const tempUserId = localStorage.getItem("userId"); // 수정 필요
+  const data = {
+    userId: tempUserId,
+    healthCondition,
+    createdAt: new Date().toISOString().substring(0, 10).replace(/-/g, ""),
+  };
   //console.log(data);
   try {
     const { status } = await fbStepFCAxios.put(`${PREFIX_URL}`, data, {

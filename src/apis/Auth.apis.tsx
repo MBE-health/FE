@@ -53,7 +53,7 @@ export const SignUp = async (signUpUser: SignUpUser): Promise<number> => {
           name: signUpUser.name,
           nickname: signUpUser.nickname,
           age: signUpUser.age,
-          sex: signUpUser.sex,
+          sex: Number(signUpUser.sex),
         },
         {
           headers: {

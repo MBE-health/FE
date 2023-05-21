@@ -1,11 +1,25 @@
 import { useState } from "react";
-import { Location, useLocation } from "react-router-dom";
+import {
+  Location,
+  useLocation,
+  useNavigate,
+  NavigateFunction,
+} from "react-router-dom";
 import { Button, Typography, Container } from "@mui/material";
 import { RecForm } from "../components";
 import { recExProps, selectedPlanProps } from "../typings";
 import { postPlan } from "../apis/Plan.apis";
+
+function handleRoute(navigate: NavigateFunction, response: selectedPlanProps) {
+  console.log(response);
+  if (response) {
+    navigate("/my page");
+  }
+}
+
 const Routine = () => {
   // state 취득
+  const navigate = useNavigate();
   const location = useLocation();
   // location.state로 접근해서 필요한 데이터 사용
   const recData: recExProps = location.state;
@@ -18,6 +32,7 @@ const Routine = () => {
     console.log("submit");
     console.log(selectedPlan);
     postPlan(selectedPlan);
+    handleRoute(navigate, selectedPlan);
   };
   return (
     <Container maxWidth="xl">
