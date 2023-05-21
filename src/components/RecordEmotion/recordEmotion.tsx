@@ -42,7 +42,7 @@ const RecordEmotion = () => {
         borderRadius="1rem"
       >
         <Box
-          width="15%"
+          width="20%"
           display="flex"
           flexDirection="row"
           alignItems="center"
@@ -53,7 +53,7 @@ const RecordEmotion = () => {
           <SentimentVeryDissatisfiedIcon />
         </Box>
 
-        <Box width="60%">
+        <Box width="65%">
           <TextField
             id="outlined-controlled"
             label="state"

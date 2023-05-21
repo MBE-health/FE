@@ -8,3 +8,4 @@ export { default as SelectContainer } from "./Accordion/container";
 export { default as RecForm } from "./Recommend/recForm";
 export {default as CheckRoutine} from "./CheckRoutine";
 export {default as  RecordEmotion} from "./RecordEmotion/recordEmotion";
+export { default as ShowRoutine } from "./ShowRoutine/showRoutine";

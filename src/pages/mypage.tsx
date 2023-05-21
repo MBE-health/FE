@@ -1,4 +1,4 @@
-import { CheckRoutine, RecordEmotion } from "../components";
+import { CheckRoutine, RecordEmotion, ShowRoutine } from "../components";
 import { Container, Box } from "@mui/material";
 
 const Mypage = () => {
@@ -13,8 +13,8 @@ const Mypage = () => {
         <CheckRoutine />
 
         <RecordEmotion />
-        {/*<ShowRoutine />
-      <GraphRoutine />*/}
+        <ShowRoutine />
+        {/*<GraphRoutine />*/}
       </Box>
     </Container>
   );

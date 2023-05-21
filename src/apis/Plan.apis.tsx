@@ -49,3 +49,29 @@ export const getRecentPlan = async () => {
     return { data: null, status: 400 };
   }
 };
+
+export const getCertainPlan = async (date: string) => {
+  //console.log(data);
+  const PREFIX_URL = "/plan";
+  const userId = localStorage.getItem("userId"); //수정 필요
+  console.log(date, `user${PREFIX_URL}/${userId}/${date}`);
+  try {
+    const { data, status } = await fbStepFCAxios.get(
+      `user${PREFIX_URL}/${userId}/${date}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("idToken")}`,
+        },
+      }
+    );
+    //console.log(response);
+    return { data: data[0], status };
+    //return status;
+  } catch (err) {
+    if (err instanceof Error) {
+      // 👉️ err is type Error here
+      return { data: null, status: 400 };
+    }
+    return { data: null, status: 400 };
+  }
+};
