@@ -10,6 +10,7 @@ const GraphContainer = () => {
       alignItems="flex-start"
       marginTop="1.5rem"
       justifyContent="space-around"
+      marginBottom="9.2rem"
     >
       <Typography variant="h4">루틴 달성 여부</Typography>
       <Box
