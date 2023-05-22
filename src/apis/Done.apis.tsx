@@ -1,11 +1,11 @@
+import { getDoneCount, getDoneDate } from "../constant/done";
 import { fbStepFCAxios } from "./index";
-
 
 export const getDone = async () => {
   const PREFIX_URL = "/done";
   const userId = localStorage.getItem("userId"); //수정 필요
   try {
-    const response = await fbStepFCAxios.post(
+    const { data, status } = await fbStepFCAxios.get(
       `user${PREFIX_URL}/${userId}`,
 
       {
@@ -14,8 +14,8 @@ export const getDone = async () => {
         },
       }
     );
-    console.log(response);
-    return response;
+    //console.log("get grand", data);
+    return data;
   } catch (err) {
     if (err instanceof Error) {
       // 👉️ err is type Error here
@@ -51,8 +51,6 @@ export const postDone = async (isDone: number[]) => {
     return 400;
   }
 };
-
-
 
 export const postComment = async (data: string) => {
   const PREFIX_URL = "/comment";

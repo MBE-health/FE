@@ -16,6 +16,7 @@ export const SignIn = async (loginUser: LoginUser) => {
     );
     //console.log("SignIn Api", data, status);
     localStorage.setItem("idToken", data.idToken);
+    localStorage.setItem("userId", data.localId);
   } catch (err) {
     if (err instanceof Error) {
       // 👉️ err is type Error here

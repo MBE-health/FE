@@ -87,3 +87,13 @@ export interface recResProps {
 }
 
 export type selectedPlanProps = recExProps | null
+
+
+export interface routineDone {
+  map(arg0: (item: routineDone) => number): unknown;
+  [index: number]: 0 | 1;
+  0: 0 | 1;
+  1: 0 | 1;
+  2: 0 | 1;
+  createdAt?: string;
+}
