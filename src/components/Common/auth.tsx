@@ -15,8 +15,9 @@ const AuthContainer = ({ children }: AuthContainerProps) => {
             backgroundSize: "100% 100%",
             display: "flex",
             flexDirection: "row",
+            margin: "5rem 0rem",
             justifyContent: "space-around",
-            padding: "5rem 0rem",
+            padding: "5rem",
           }}
           borderRadius="1rem"
         >

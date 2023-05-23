@@ -12,3 +12,5 @@ export { default as ShowRoutine } from "./ShowRoutine/showRoutine";
 export { default as GraphRoutine } from "./GraphRoutine/graphContainer";
 export {default as RequiredAuth} from "./Common/requiredAuth"
 export { default as ShowPlan } from "./Main/ShowPlan";
+export {default as ShowHealth} from "./Main/ShowHealth"
+export { default as ShowExercise } from "./Main/ShowExercise";

@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
-const pages = ["plan", "analyze", "my page"];
+const pages = ["plan", "my page"];
 const settings = ["Logout"];
 
 function ResponsiveAppBar() {
@@ -34,6 +34,8 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleLogoClick = () => {};
 
   return (
     <AppBar
@@ -95,12 +97,15 @@ function ResponsiveAppBar() {
             sx={{
               flexGrow: 1,
               display: { xs: "none", md: "flex" },
-              maxWidth: "80rem",
+              maxWidth: "60rem",
               justifyContent: "space-between",
               padding: "0 10rem",
             }}
           >
-            <img src="/assets/header/logo.png" alt="logo" />
+            <Link to="/">
+              <img src="/assets/header/logo.png" alt="logo" />
+            </Link>
+
             <Box
               sx={{
                 display: "flex",

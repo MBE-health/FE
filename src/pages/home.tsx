@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { ShowPlan } from "../components";
+import { ShowPlan, ShowHealth, ShowExercise } from "../components";
 
 const Home = () => {
   const IsLogin = localStorage.getItem("idToken") ? true : false;
@@ -15,6 +15,8 @@ const Home = () => {
       }}
     >
       <ShowPlan isLogin={IsLogin} />
+      <ShowHealth isLogin={IsLogin} />
+      <ShowExercise isLogin={IsLogin} />
     </Box>
   );
 };
