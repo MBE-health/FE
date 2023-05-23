@@ -1,5 +1,10 @@
 import { Box, Stack, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { recExProps } from "../../../typings";
+import { getRecentPlan } from "../../../apis/Plan.apis";
+import BlockedPlan from "./Blocked/Plan";
+import NonBlockedPlan from "./NonBlocked/Plan";
 
 interface planWrapperProps {
   isLogin: boolean;
@@ -9,11 +14,29 @@ const PlanWrapper = ({ isLogin }: planWrapperProps) => {
   const handleClick = () => {
     navigate("/login");
   };
+
+  const [plan, setPlan] = useState<recExProps | null>(null);
+
+  const fetchData = async () => {
+    const { data, status } = await getRecentPlan();
+    console.log(data, status);
+    setPlan(data);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <Stack direction="column" spacing="3rem">
       <Box>
         {isLogin ? (
-          <>로그인함</>
+          <>
+            <Typography variant="h3" display="inline" color="secondary.dark">
+              ??username??
+            </Typography>
+            <Typography variant="h3" display="inline">
+              님의 오늘 운동 플랜
+            </Typography>
+          </>
         ) : (
           <Typography
             variant="h3"
@@ -26,14 +49,10 @@ const PlanWrapper = ({ isLogin }: planWrapperProps) => {
         )}
       </Box>
 
-      {isLogin ? (
-        <>로그인함</>
+      {isLogin && plan !== null ? (
+        <NonBlockedPlan data={plan as recExProps} />
       ) : (
-        <Stack direction="column" spacing="2rem">
-          <img src="/assets/noUser/plan1.png" alt="blockedPlan1" />
-          <img src="/assets/noUser/plan2.png" alt="blockedPlan2" />
-          <img src="/assets/noUser/plan3.png" alt="blockedPlan3" />
-        </Stack>
+        <BlockedPlan />
       )}
     </Stack>
   );
