@@ -1,6 +1,9 @@
 import { Box } from "@mui/material";
+import { ShowPlan } from "../components";
 
 const Home = () => {
+  const IsLogin = localStorage.getItem("idToken") ? true : false;
+  console.log(IsLogin);
   return (
     <Box
       width="100%"
@@ -11,7 +14,7 @@ const Home = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      Home
+      <ShowPlan isLogin={IsLogin} />
     </Box>
   );
 };

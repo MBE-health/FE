@@ -10,3 +10,5 @@ export {default as CheckRoutine} from "./CheckRoutine";
 export {default as  RecordEmotion} from "./RecordEmotion/recordEmotion";
 export { default as ShowRoutine } from "./ShowRoutine/showRoutine";
 export { default as GraphRoutine } from "./GraphRoutine/graphContainer";
+export {default as RequiredAuth} from "./Common/requiredAuth"
+export { default as ShowPlan } from "./Main/ShowPlan";

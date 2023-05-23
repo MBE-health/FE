@@ -12,11 +12,11 @@ const AuthContainer = ({ children }: AuthContainerProps) => {
           style={{
             backgroundImage: "url(/assets/login/background.png)",
             backgroundRepeat: "round",
-            backgroundSize: "cover",
+            backgroundSize: "100% 100%",
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-around",
-            padding: "4.5rem 0rem",
+            padding: "5rem 0rem",
           }}
           borderRadius="1rem"
         >

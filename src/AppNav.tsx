@@ -10,16 +10,20 @@ import {
   Login,
   SignUp,
 } from "./pages";
+import { RequiredAuth } from "./components";
 
 const AppNav = () => {
   return (
     <Routes>
-      <Route path="/routine" element={<Routine />} />
+      <Route element={<RequiredAuth />}>
+        <Route path="/routine" element={<Routine />} />
+        <Route path="/plan" element={<Plan />} />
+        <Route path="/my page" element={<Mypage />} />
+      </Route>
       <Route path="/onboarding" element={<OnBoarding />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/plan" element={<Plan />} />
-      <Route path="/my page" element={<Mypage />} />
+
       <Route path="/" element={<Home />} />
     </Routes>
   );

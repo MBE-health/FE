@@ -11,6 +11,7 @@ export const theme = createTheme({
     secondary: {
       main: colors.greenAccent[200],
       light: colors.greenAccent[100],
+      dark: colors.blueAccent[700],
     },
     background: {
       default: "#fcfcfc",
@@ -22,6 +23,7 @@ export const theme = createTheme({
     h1: {
       fontFamily: ["Pretendard Variable", "Pretendard"].join(","),
       fontSize: 40,
+      fontWeight: 700, // extra bold
     },
     h2: {
       fontFamily: ["Pretendard Variable", "Pretendard"].join(","),

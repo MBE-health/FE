@@ -10,7 +10,7 @@ import { SignIn } from "../../apis/Auth.apis";
 
   function handleRoute(navigate: NavigateFunction) {
     if (localStorage.getItem("idToken")) {
-      navigate("/my page");
+      navigate("/");
     } else {
       navigate("/plan");
     }
