@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
-import { Box, Button } from "@mui/material";
+import { Box, Button, Container } from "@mui/material";
 import { StepContainer } from "../components";
 import {
   healthConditionProps,
@@ -117,8 +117,12 @@ const Plan = () => {
 
   return (
     <Box
+      width="100%"
+      height="100%"
       style={{
         backgroundImage: "url(/assets/background.png)",
+        backgroundSize: "100% 100%",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <StepContainer
@@ -148,24 +152,28 @@ const Plan = () => {
         setIsCompleted={setIsKeywordsCompleted}
         type="input"
       />
-      <Button
-        variant="contained"
-        type="button"
-        onClick={handleSubmit}
-        fullWidth
-        disableElevation
-        sx={{
-          backgroundColor: "secondary.light",
-          margin: "6.5rem 0 1.5rem",
-          "&:hover": {
-            border: "2px solid secondary.main",
-            borderColor: "secondary.main",
-            backgroundColor: "secondary.main",
-          },
-        }}
-      >
-        운동 플랜 생성하기
-      </Button>
+      <center>
+        <Container maxWidth="xl" sx={{ marginBottom: "3rem" }}>
+          <Button
+            variant="contained"
+            type="button"
+            onClick={handleSubmit}
+            fullWidth
+            disableElevation
+            sx={{
+              backgroundColor: "secondary.light",
+              margin: "6.5rem 0 1.5rem",
+              "&:hover": {
+                border: "2px solid secondary.main",
+                borderColor: "secondary.main",
+                backgroundColor: "secondary.main",
+              },
+            }}
+          >
+            운동 플랜 생성하기
+          </Button>
+        </Container>
+      </center>
     </Box>
   );
 };

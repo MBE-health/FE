@@ -27,6 +27,9 @@ html {
   overflow-x: hidden;
   background-image: url("../../public/assets/background.png")
 }
+body{
+  padding-top: 15rem;
+}
 p {
   margin: 0;
   padding: 0;

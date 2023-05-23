@@ -3,8 +3,13 @@ import { Box } from "@mui/material";
 const Home = () => {
   return (
     <Box
-      m="3.8rem 0"
-      style={{ backgroundImage: "url(/assets/background.png)" }}
+      width="100%"
+      height="100%"
+      style={{
+        backgroundImage: "url(/assets/mainGround.png)",
+        backgroundSize: "100% 100%",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       Home
     </Box>

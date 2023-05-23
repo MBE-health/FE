@@ -37,9 +37,13 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar
-      position="static"
+      position="fixed"
       sx={{
         backgroundImage: "url(/assets/header/header.png)",
+        top: 0,
+
+        /*backgroundSize: "100% 100%",
+        backgroundRepeat: "no-repeat",*/
         backgroundColor: "transparent",
       }}
     >
