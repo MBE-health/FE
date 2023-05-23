@@ -18,8 +18,12 @@ const Mypage = () => {
         <CheckRoutine />
 
         <RecordEmotion />
+
         <ShowRoutine />
-        <GraphRoutine />
+
+        <Container maxWidth="md">
+          <GraphRoutine />
+        </Container>
       </Box>
     </Container>
   );

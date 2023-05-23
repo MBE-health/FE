@@ -1,4 +1,7 @@
+import { useState, useEffect } from "react";
 import { Box, Container, Divider, Typography } from "@mui/material";
+import NonBlocked from "./NonBlocked";
+
 interface ShowHealthProps {
   isLogin: boolean;
 }
@@ -19,11 +22,11 @@ const ShowHealth = ({ isLogin }: ShowHealthProps) => {
         borderRadius="1rem"
       >
         {isLogin ? (
-          <div>로그인함</div>
+          <NonBlocked />
         ) : (
           <img
             src="/assets/noUser/blockContainer.png"
-            alt="blockedPlan1"
+            alt="Blocked Container"
             style={{ opacity: 0.5 }}
           />
         )}

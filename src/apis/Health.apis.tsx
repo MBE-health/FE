@@ -30,3 +30,28 @@ export const setHealthCondition = async (
   }
 };
 
+
+
+export const getHealth = async () => {
+  const PREFIX_URL = "/health";
+  const userId = localStorage.getItem("userId"); //수정 필요
+  try {
+    const { data, status } = await fbStepFCAxios.get(
+      `user${PREFIX_URL}/${userId}`,
+
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("idToken")}`,
+        },
+      }
+    );
+    //console.log("get grand", data);
+    return { data, status };
+  } catch (err) {
+    if (err instanceof Error) {
+      // 👉️ err is type Error here
+      return { data: null, status: 400 };
+    }
+    return { data: null, status: 400 };
+  }
+};

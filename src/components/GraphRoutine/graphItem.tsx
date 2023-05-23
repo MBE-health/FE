@@ -32,8 +32,11 @@ const GraphItem = () => {
     const response = await getDone();
     setDoneData(response);
     console.log("gkdkt", response);
-    setDoneCnt(getDoneCount(response) as number[]);
-    setLabelData(getDoneDate(response) as string[]);
+   
+      setDoneCnt(getDoneCount(response) as number[]);
+      setLabelData(getDoneDate(response) as string[]);
+  
+
   };
 
   useEffect(() => {

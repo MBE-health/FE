@@ -97,3 +97,11 @@ export interface routineDone {
   2: 0 | 1;
   createdAt?: string;
 }
+
+export interface userInfoProps {
+  id?:string,
+  sex:number,
+  name:string,
+  nickname?:string,
+  age:number
+}

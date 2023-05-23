@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, Navigate, Outlet } from "react-router-dom";
 
 function RequireAuth() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("idToken");
   const location = useLocation();
 
   return token ? (

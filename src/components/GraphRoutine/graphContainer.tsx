@@ -24,7 +24,7 @@ const GraphContainer = () => {
           alignItems: "center",
           padding: "4.5rem 5rem",
         }}
-        width="90rem"
+        width="100%"
         borderRadius="1rem"
       >
         <GraphItem />
