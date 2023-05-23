@@ -39,6 +39,7 @@ const NonBlock = () => {
         {health !== null && (
           <UserProfile height={height as number} weight={weight as number} />
         )}
+        {/* BMI 지수 라인바 */}
         <Box width="50%" height="50%">
           <GraphRoutine />
         </Box>

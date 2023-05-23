@@ -1,10 +1,25 @@
 import { Box, Container, Divider, Typography, Stack } from "@mui/material";
+import { useEffect, useState } from "react";
+import ExerciseCard from "./exerciseCard";
+import { getAllPlan } from "../../../apis/Plan.apis";
+import { recExProps } from "../../../typings";
 
 interface ShowHealthProps {
   isLogin: boolean;
 }
 
 const ShowExercise = ({ isLogin }: ShowHealthProps) => {
+  const [exerciseList, setExerciseList] = useState<recExProps[] | null>(null);
+
+  const fetchData = async () => {
+    const { data, status } = await getAllPlan();
+    console.log(data);
+    setExerciseList(data);
+    console.log("gmgm", data);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <Container maxWidth="xl">
       <Divider sx={{ margin: "0rem 5rem" }}>
@@ -19,8 +34,8 @@ const ShowExercise = ({ isLogin }: ShowHealthProps) => {
         }}
         borderRadius="1rem"
       >
-        {isLogin ? (
-          <div>로그인함</div>
+        {isLogin && exerciseList != null ? (
+          <ExerciseCard exercise={exerciseList} />
         ) : (
           <Stack direction="row" spacing="2rem">
             <img
