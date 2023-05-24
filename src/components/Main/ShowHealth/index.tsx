@@ -12,6 +12,7 @@ const ShowHealth = ({ isLogin }: ShowHealthProps) => {
       <Divider sx={{ margin: "0rem 5rem" }}>
         <Typography variant="h3">Report on physical health</Typography>
       </Divider>
+
       <Box
         style={{
           display: "flex",
@@ -27,7 +28,7 @@ const ShowHealth = ({ isLogin }: ShowHealthProps) => {
           <img
             src="/assets/noUser/blockContainer.png"
             alt="Blocked Container"
-            style={{ opacity: 0.5 }}
+            style={{ opacity: 0.5, width: "100%" }}
           />
         )}
       </Box>

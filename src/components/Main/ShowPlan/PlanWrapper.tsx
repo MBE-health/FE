@@ -23,7 +23,9 @@ const PlanWrapper = ({ isLogin }: planWrapperProps) => {
     setPlan(data);
   };
   useEffect(() => {
-    fetchData();
+         if (isLogin) {
+           fetchData();
+         }
   }, []);
   return (
     <Stack direction="column" spacing="3rem">

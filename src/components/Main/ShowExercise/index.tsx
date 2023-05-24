@@ -18,7 +18,9 @@ const ShowExercise = ({ isLogin }: ShowHealthProps) => {
     console.log("gmgm", data);
   };
   useEffect(() => {
-    fetchData();
+    if (isLogin) {
+      fetchData();
+    }
   }, []);
   return (
     <Container maxWidth="xl">
@@ -37,7 +39,12 @@ const ShowExercise = ({ isLogin }: ShowHealthProps) => {
         {isLogin && exerciseList != null ? (
           <ExerciseCard exercise={exerciseList} />
         ) : (
-          <Stack direction="row" spacing="2rem">
+          <Box
+            display="flex"
+            flexDirection="row"
+            justifyContent="space-between"
+            width="100%"
+          >
             <img
               src="/assets/noUser/blockRoutine.png"
               alt="blockedPlan1"
@@ -53,7 +60,7 @@ const ShowExercise = ({ isLogin }: ShowHealthProps) => {
               alt="blockedPlan1"
               style={{ opacity: 0.5 }}
             />
-          </Stack>
+          </Box>
         )}
       </Box>
     </Container>
