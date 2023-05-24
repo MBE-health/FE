@@ -18,6 +18,7 @@ const FormNavigation: FC<Props> = (props) => {
         display: "flex",
         marginTop: 5,
         justifyContent: "space-between",
+        paddingLeft: "2.5rem",
       }}
     >
       {props.hasPrevious && (

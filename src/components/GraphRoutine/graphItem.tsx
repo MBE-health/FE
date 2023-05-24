@@ -33,12 +33,15 @@ const GraphItem = ({ width, height }: GraphItemProps) => {
   const [doneCnt, setDoneCnt] = useState<number[]>([]);
 
   const fetchData = async () => {
-    const response = await getDone();
-    setDoneData(response);
-    console.log("gkdkt", response);
+    const { data, status } = await getDone();
+    if (status === 200 || data !== "NO SERVERS AVAILABLE") {
+      setDoneData(data);
+      console.log("gkdkt", data);
 
-    setDoneCnt(getDoneCount(response) as number[]);
-    setLabelData(getDoneDate(response) as string[]);
+      setDoneCnt(getDoneCount(data) as number[]);
+      setLabelData(getDoneDate(data) as string[]);
+    }
+
   };
 
   useEffect(() => {

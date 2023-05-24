@@ -45,8 +45,8 @@ const OnBoardingForm = () => {
         <Box
           style={{
             backgroundImage: "url(/assets/login/background.png)",
-            backgroundRepeat: "round",
-            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "100% 100%",
             display: "flex",
             flexDirection: "row",
             justifyContent: "flex-start",
@@ -90,8 +90,8 @@ const OnBoardingForm = () => {
         <Box
           style={{
             backgroundImage: "url(/assets/login/background.png)",
-            backgroundRepeat: "round",
-            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "100% 100%",
             display: "flex",
             flexDirection: "row",
             justifyContent: "flex-start",

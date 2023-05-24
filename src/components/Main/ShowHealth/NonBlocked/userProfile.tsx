@@ -29,10 +29,11 @@ const UserProfile = ({ height, weight }: UserProfileProps) => {
         backgroundSize: "100% 100%",
         display: "flex",
         flexDirection: "row",
-        margin: "5rem 0rem",
+        /*margin: "5rem 0rem",*/
         justifyContent: "space-around",
+        alignItems: "center",
         padding: "5rem",
-        height: "fit-content",
+        height: "50rem",
       }}
       borderRadius="1rem"
     >

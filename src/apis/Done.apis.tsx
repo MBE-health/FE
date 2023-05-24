@@ -1,4 +1,3 @@
-import { getDoneCount, getDoneDate } from "../constant/done";
 import { fbStepFCAxios } from "./index";
 
 export const getDone = async () => {
@@ -15,13 +14,14 @@ export const getDone = async () => {
       }
     );
     //console.log("get grand", data);
-    return data;
+    console.log("getDone", data, status);
+    return { data: data, status: status };
   } catch (err) {
     if (err instanceof Error) {
       // 👉️ err is type Error here
-      return 400;
+      return { data: null, status: 400 };
     }
-    return 400;
+    return { data: null, status: 400 };
   }
 };
 
