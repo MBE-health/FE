@@ -14,6 +14,7 @@ const Mypage = () => {
         flexDirection="column"
         alignItems="center"
         style={{ backgroundImage: "url(/assets/background.png)" }}
+        width="100%"
       >
         <CheckRoutine />
 
@@ -22,7 +23,7 @@ const Mypage = () => {
         <ShowRoutine />
 
         <Container maxWidth="md">
-          <GraphRoutine />
+          <GraphRoutine width="70rem" height="auto" />
         </Container>
       </Box>
     </Container>

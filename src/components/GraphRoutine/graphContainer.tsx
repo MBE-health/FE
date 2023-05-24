@@ -2,7 +2,12 @@ import { Box, Typography } from "@mui/material";
 
 import GraphItem from "./graphItem";
 
-const GraphContainer = () => {
+interface GraphContainerProps {
+  width: string;
+  height: string;
+}
+
+const GraphContainer = ({ width, height }: GraphContainerProps) => {
   return (
     <Box
       display="flex"
@@ -10,7 +15,8 @@ const GraphContainer = () => {
       alignItems="flex-start"
       marginTop="1.5rem"
       justifyContent="space-around"
-      marginBottom="9.2rem"
+      width="100%"
+      /*marginBottom="9.2rem"*/
     >
       <Typography variant="h4">루틴 달성 여부</Typography>
       <Box
@@ -23,11 +29,11 @@ const GraphContainer = () => {
           justifyContent: "space-around",
           alignItems: "center",
           padding: "4.5rem 5rem",
+          width: "100%",
         }}
-        width="100%"
         borderRadius="1rem"
       >
-        <GraphItem />
+        <GraphItem width={width} height={height} />
       </Box>
     </Box>
   );

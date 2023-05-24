@@ -12,7 +12,7 @@ import { Bar } from "react-chartjs-2";
 import { getDone } from "../../apis/Done.apis";
 import { getDoneDate, getDoneCount } from "../../constant/done";
 import { routineDone } from "../../typings";
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 ChartJS.register(
   CategoryScale,
@@ -22,8 +22,12 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+interface GraphItemProps {
+  width: string;
+  height: string;
+}
 
-const GraphItem = () => {
+const GraphItem = ({ width, height }: GraphItemProps) => {
   const [doneData, setDoneData] = useState<routineDone[]>([]);
   const [labelData, setLabelData] = useState<string[]>([]);
   const [doneCnt, setDoneCnt] = useState<number[]>([]);
@@ -32,11 +36,9 @@ const GraphItem = () => {
     const response = await getDone();
     setDoneData(response);
     console.log("gkdkt", response);
-   
-      setDoneCnt(getDoneCount(response) as number[]);
-      setLabelData(getDoneDate(response) as string[]);
-  
 
+    setDoneCnt(getDoneCount(response) as number[]);
+    setLabelData(getDoneDate(response) as string[]);
   };
 
   useEffect(() => {
@@ -58,7 +60,7 @@ const GraphItem = () => {
   };
 
   const options = {
-    responsive: true,
+    responsive: false,
     plugins: {
       legend: {
         position: "bottom" as const,
@@ -74,8 +76,14 @@ const GraphItem = () => {
     fetchData();
   }, []);
   return (
-    <Box width="90%" height="80%">
-      {getDoneDate.length > 0 && <Bar options={options} data={data} />}
+    <Box>
+      {getDoneDate.length > 0 && (
+        <Bar
+          options={options}
+          data={data}
+          style={{ width: width, height: height }}
+        />
+      )}
     </Box>
   );
 };

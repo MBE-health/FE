@@ -32,7 +32,7 @@ const UserProfile = ({ height, weight }: UserProfileProps) => {
         margin: "5rem 0rem",
         justifyContent: "space-around",
         padding: "5rem",
-        minHeight: "30rem",
+        height: "fit-content",
       }}
       borderRadius="1rem"
     >

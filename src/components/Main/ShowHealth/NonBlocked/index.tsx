@@ -30,7 +30,8 @@ const NonBlock = () => {
           display: "flex",
           flexDirection: "row",
           margin: "5rem 0rem",
-          justifyContent: "space-around",
+          justifyContent: "space-between",
+          alignItems: "center",
           padding: "5rem",
           minHeight: "30rem",
         }}
@@ -39,9 +40,18 @@ const NonBlock = () => {
         {health !== null && (
           <UserProfile height={height as number} weight={weight as number} />
         )}
-        {/* BMI 지수 라인바 */}
-        <Box width="50%" height="50%">
-          <GraphRoutine />
+
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <GraphRoutine width="60rem" height="15rem" />
+
+          <Box>
+            <GraphRoutine width="60rem" height="15rem" />
+          </Box>
         </Box>
       </Box>
     </Container>

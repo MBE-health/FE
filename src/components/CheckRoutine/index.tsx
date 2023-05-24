@@ -45,7 +45,9 @@ const CheckRoutine = () => {
       justifyContent="space-around"
       height="40rem"
     >
-      <Typography variant="h4">오늘의 플랜</Typography>
+      <Typography variant="h4" marginLeft="1.5rem">
+        오늘의 플랜
+      </Typography>
       <Box
         style={{
           backgroundImage: "url(/assets/login/background.png)",

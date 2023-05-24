@@ -6,7 +6,9 @@ function getDoneCount(days: routineDone[]): number[] {
   return count;
 }
 function getDoneDate(days: routineDone[]) {
-  const data = days.map((item: routineDone) => item.createdAt);
+  const data = days.map((item: routineDone) =>
+    (item.createdAt as string).slice(-4)
+  );
   console.log(data);
   return data;
 }

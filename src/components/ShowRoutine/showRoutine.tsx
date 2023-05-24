@@ -60,7 +60,9 @@ const ShowRoutine = () => {
       marginTop="1.5rem"
       justifyContent="space-around"
     >
-      <Typography variant="h4">과거의 루틴</Typography>
+      <Typography variant="h4" marginLeft="1.5rem">
+        과거의 루틴 조회
+      </Typography>
       <Box
         style={{
           backgroundImage: "url(/assets/login/background.png)",
