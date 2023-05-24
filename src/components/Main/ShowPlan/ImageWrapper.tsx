@@ -8,6 +8,7 @@ const ImageWrapper = () => {
       alignItems="flex-end"
       paddingTop="10rem"
       justifyContent="center"
+      width="100%"
     >
       <img src="/assets/mainPic.png" alt="logo" width="90%" />;
     </Box>

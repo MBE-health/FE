@@ -36,32 +36,35 @@ const ShowExercise = ({ isLogin }: ShowHealthProps) => {
         }}
         borderRadius="1rem"
       >
-        {isLogin && exerciseList != null ? (
-          <ExerciseCard exercise={exerciseList} />
-        ) : (
-          <Box
-            display="flex"
-            flexDirection="row"
-            justifyContent="space-between"
-            width="100%"
-          >
-            <img
-              src="/assets/noUser/blockRoutine.png"
-              alt="blockedPlan1"
-              style={{ opacity: 0.5 }}
-            />
-            <img
-              src="/assets/noUser/blockRoutine.png"
-              alt="blockedPlan1"
-              style={{ opacity: 0.5 }}
-            />
-            <img
-              src="/assets/noUser/blockRoutine.png"
-              alt="blockedPlan1"
-              style={{ opacity: 0.5 }}
-            />
-          </Box>
-        )}
+        {" "}
+        <Box
+          display="flex"
+          flexDirection="row"
+          justifyContent="space-between"
+          width="100%"
+        >
+          {isLogin && exerciseList != null ? (
+            <ExerciseCard exercise={exerciseList} />
+          ) : (
+            <>
+              <img
+                src="/assets/noUser/blockRoutine.png"
+                alt="blockedPlan1"
+                style={{ opacity: 0.5 }}
+              />
+              <img
+                src="/assets/noUser/blockRoutine.png"
+                alt="blockedPlan1"
+                style={{ opacity: 0.5 }}
+              />
+              <img
+                src="/assets/noUser/blockRoutine.png"
+                alt="blockedPlan1"
+                style={{ opacity: 0.5 }}
+              />
+            </>
+          )}
+        </Box>
       </Box>
     </Container>
   );

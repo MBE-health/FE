@@ -20,10 +20,12 @@ const ShowPlan = ({ isLogin }: showPlanProps) => {
         }}
         borderRadius="1rem"
       >
-        <Stack direction="column" spacing="5rem">
-          <TitleWrapper />
-          <PlanWrapper isLogin={isLogin} />
-        </Stack>
+        <Container maxWidth="xl">
+          <Stack direction="column" spacing="5rem">
+            <TitleWrapper />
+            <PlanWrapper isLogin={isLogin} />
+          </Stack>
+        </Container>
 
         <ImageWrapper />
       </Box>
