@@ -39,11 +39,48 @@ const UserProfile = ({ height, weight }: UserProfileProps) => {
       <Stack direction="column" spacing="2rem">
         <img src="/assets/main/user.png" alt="logo" />
         {userInfo !== null && (
-          <>
-            <div>{userInfo.age}</div>
-            <div>{height}</div>
-            <div>{weight}</div>
-          </>
+          <center>
+            <Box padding="0.5rem">
+              <Typography
+                variant="h4"
+                display="inline"
+                fontWeight="400"
+                marginRight="5rem"
+              >
+                나이
+              </Typography>
+              <Typography variant="h4" display="inline">
+                {userInfo.age}
+              </Typography>
+            </Box>
+            <Box padding="0.5rem">
+              <Typography
+                variant="h4"
+                display="inline"
+                fontWeight="400"
+                marginRight="5rem"
+              >
+                키
+              </Typography>
+              <Typography variant="h4" display="inline">
+                {height}
+              </Typography>
+            </Box>
+
+            <Box padding="0.5rem">
+              <Typography
+                variant="h4"
+                display="inline"
+                fontWeight="400"
+                marginRight="5rem"
+              >
+                몸무게
+              </Typography>
+              <Typography variant="h4" display="inline">
+                {weight}
+              </Typography>
+            </Box>
+          </center>
         )}
       </Stack>
     </Box>

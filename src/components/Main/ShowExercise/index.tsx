@@ -46,23 +46,33 @@ const ShowExercise = ({ isLogin }: ShowHealthProps) => {
           {isLogin && exerciseList != null ? (
             <ExerciseCard exercise={exerciseList} />
           ) : (
-            <>
-              <img
-                src="/assets/noUser/blockRoutine.png"
-                alt="blockedPlan1"
-                style={{ opacity: 0.5 }}
-              />
-              <img
-                src="/assets/noUser/blockRoutine.png"
-                alt="blockedPlan1"
-                style={{ opacity: 0.5 }}
-              />
-              <img
-                src="/assets/noUser/blockRoutine.png"
-                alt="blockedPlan1"
-                style={{ opacity: 0.5 }}
-              />
-            </>
+            <Container maxWidth="xl">
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <img
+                  src="/assets/noUser/blockRoutine.png"
+                  alt="blockedPlan1"
+                  style={{
+                    opacity: 0.5,
+                  }}
+                />
+                <img
+                  src="/assets/noUser/blockRoutine.png"
+                  alt="blockedPlan1"
+                  style={{ opacity: 0.5 }}
+                />
+                <img
+                  src="/assets/noUser/blockRoutine.png"
+                  alt="blockedPlan1"
+                  style={{ opacity: 0.5 }}
+                />
+              </Box>
+            </Container>
           )}
         </Box>
       </Box>
