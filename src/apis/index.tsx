@@ -7,9 +7,12 @@ const fbAuthAxios = axios.create({
   },
   withCredentials: false,*/
 });
+const fbStepFCAxios = axios.create({
+  baseURL: `https://us-central1-mbe-health.cloudfunctions.net/`,
+});
 
-const serverAxios = axios.create({
-  baseURL: `https://identitytoolkit.googleapis.com/`,
+const AIAxios = axios.create({
+  baseURL: `https://mbe-heath.herokuapp.com/`,
   /*headers: {
     "Access-Control-Allow-Origin": `${process.env.REACT_APP_SERVER_URL}`,
   },
@@ -24,4 +27,4 @@ const privateAxios = axios.create({
   withCredentials: true,*/
 });
 
-export { fbAuthAxios, serverAxios, privateAxios };
+export { fbAuthAxios, fbStepFCAxios, AIAxios, privateAxios };

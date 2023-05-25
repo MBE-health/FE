@@ -13,7 +13,10 @@ export const LoginSchema = yup.object().shape({
   password: yup
     .string()
     .min(5)
-    .matches(passwordRules, { message: "Please create a stronger password" })
+    .matches(passwordRules, {
+      message:
+        " 최소 8자, 하나 이상의 대문자, 하나의 소문자, 하나의 숫자 및 하나의 특수 문자",
+    })
     .required("Password Required"),
   /*confirmPassword: yup
     .string()

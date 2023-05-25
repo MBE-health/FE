@@ -1,13 +1,14 @@
-import { Box } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
+import { OnBoardingForm } from "../components";
 
 const OnBoarding = () => {
   return (
-    <Box
-      m="3.8rem 0"
-      style={{ backgroundImage: "url(/assets/background.png)" }}
-    >
-      onBoarding
-    </Box>
+    <Container maxWidth="xl">
+      <Typography variant="h2" marginLeft="2.5rem">
+        신규회원 정보 등록
+      </Typography>
+      <OnBoardingForm />
+    </Container>
   );
 };
 
