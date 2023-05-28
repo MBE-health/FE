@@ -8,7 +8,10 @@ interface ExerciseCardProps {
 
 const ExerciseCard = (exercise: ExerciseCardProps) => {
   // console.log("exercise", exercise.exercise);
-  const exerciseList = exercise.exercise;
+  const exerciseList =
+    exercise.exercise.length > 3
+      ? exercise.exercise.slice(0, 3)
+      : exercise.exercise;
 
   return (
     <Container maxWidth="xl">

@@ -17,7 +17,7 @@ const ShowHealth = ({ isLogin }: ShowHealthProps) => {
         style={{
           display: "flex",
           flexDirection: "row",
-          justifyContent: "space-between",
+          justifyContent: "space-around",
           padding: "5rem",
         }}
         borderRadius="1rem"
