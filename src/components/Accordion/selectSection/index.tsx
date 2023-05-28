@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Grid,
+  Box,
   Typography,
   Stack,
   ToggleButton,
@@ -37,7 +38,7 @@ const SelectSection = ({
     setComplete(false);
 
     if (isPressed === "false") {
-      target.style.backgroundColor = "Red";
+      target.style.backgroundColor = "#C5CCE7";
       target.setAttribute("aria-pressed", "true");
     } else {
       target.style.backgroundColor = "transparent";
@@ -65,7 +66,7 @@ const SelectSection = ({
       spacing={5}
       justifyContent="flex-start"
       alignItems="center"
-      padding="0"
+      padding="3rem 0"
     >
       <Grid item xs={2}>
         <Typography variant="h4" color="main" textAlign="center">
@@ -80,19 +81,23 @@ const SelectSection = ({
             onChange={handleFormat}
             aria-label="text formatting"
           >
-            {
-              // @ts-ignore
-              exercise[label].map(({ name, value }: string) => (
-                <ToggleButton
-                  value="bold"
-                  aria-label="bold"
-                  data-type={label}
-                  data-value={value}
-                >
-                  {name}
-                </ToggleButton>
-              ))
-            }
+            <Grid container wrap="wrap" spacing={2}>
+              {
+                // @ts-ignore
+                exercise[label].map(({ name, value }: string) => (
+                  <Grid item>
+                    <ToggleButton
+                      value="bold"
+                      aria-label="bold"
+                      data-type={label}
+                      data-value={value}
+                    >
+                      {name}
+                    </ToggleButton>
+                  </Grid>
+                ))
+              }
+            </Grid>
           </ToggleButtonGroup>
           {/*{
             // @ts-ignore
