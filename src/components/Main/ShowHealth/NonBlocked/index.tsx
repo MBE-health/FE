@@ -30,7 +30,7 @@ const NonBlock = () => {
           display: "flex",
           flexDirection: "row",
           margin: "5rem 0rem",
-          justifyContent: "space-between",
+          justifyContent: "space-around",
           alignItems: "center",
           padding: "5rem",
           minHeight: "30rem",
@@ -47,10 +47,12 @@ const NonBlock = () => {
           justifyContent="space-between"
           alignItems="center"
         >
-          <GraphRoutine width="60rem" height="15rem" />
+          {/* <Box>
+            <GraphRoutine width="60rem" height="15rem" />
+          </Box>*/}
 
           <Box>
-            <GraphRoutine width="60rem" height="15rem" />
+            <GraphRoutine width="60rem" height="40rem" />
           </Box>
         </Box>
       </Box>
