@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Grid,
-  Box,
   Typography,
   Stack,
   ToggleButton,
@@ -66,7 +65,7 @@ const SelectSection = ({
       spacing={5}
       justifyContent="flex-start"
       alignItems="center"
-      padding="3rem 0"
+      padding="0"
     >
       <Grid item xs={2}>
         <Typography variant="h4" color="main" textAlign="center">
@@ -74,30 +73,31 @@ const SelectSection = ({
         </Typography>
       </Grid>
       <Grid item xs={10}>
-        <Stack direction="row" spacing={2} alignItems="center">
+        <Stack
+          direction="row"
+          spacing={2}
+          alignItems="center"
+          padding="3rem 0rem"
+        >
           <ToggleButtonGroup
             // @ts-ignore
             value={exercise[label]}
             onChange={handleFormat}
             aria-label="text formatting"
           >
-            <Grid container wrap="wrap" spacing={2}>
-              {
-                // @ts-ignore
-                exercise[label].map(({ name, value }: string) => (
-                  <Grid item>
-                    <ToggleButton
-                      value="bold"
-                      aria-label="bold"
-                      data-type={label}
-                      data-value={value}
-                    >
-                      {name}
-                    </ToggleButton>
-                  </Grid>
-                ))
-              }
-            </Grid>
+            {
+              // @ts-ignore
+              exercise[label].map(({ name, value }: string) => (
+                <ToggleButton
+                  value="bold"
+                  aria-label="bold"
+                  data-type={label}
+                  data-value={value}
+                >
+                  {name}
+                </ToggleButton>
+              ))
+            }
           </ToggleButtonGroup>
           {/*{
             // @ts-ignore

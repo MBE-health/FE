@@ -14,3 +14,4 @@ export {default as RequiredAuth} from "./Common/requiredAuth"
 export { default as ShowPlan } from "./Main/ShowPlan";
 export {default as ShowHealth} from "./Main/ShowHealth"
 export { default as ShowExercise } from "./Main/ShowExercise";
+export { default as PopupDialog } from "./Common/popup";
