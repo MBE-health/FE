@@ -43,7 +43,7 @@ const Plan = () => {
 
   const handleSubmitBtn = () => {
     handleClickOpen();
-    handleSubmit();
+    //handleSubmit();
   };
   const navigate = useNavigate();
   const [healthCondition, setHealthCondition] = useState<healthConditionProps>({

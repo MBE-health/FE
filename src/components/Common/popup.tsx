@@ -6,6 +6,8 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  CircularProgress,
+  Typography,
 } from "@mui/material";
 
 interface PopupDialogProps {
@@ -17,17 +19,20 @@ export default function PopupDialog({ open, handleClose }: PopupDialogProps) {
   return (
     <div>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Subscribe</DialogTitle>
+        <DialogTitle>
+          <Typography variant="h4">운동 플랜 생성 중</Typography>
+        </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
+            <center>
+              <CircularProgress color="secondary" />
+            </center>
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
+        {/*<DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={handleClose}>Subscribe</Button>
-        </DialogActions>
+        </DialogActions>*/}
       </Dialog>
     </div>
   );
