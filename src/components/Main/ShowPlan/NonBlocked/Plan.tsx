@@ -43,8 +43,9 @@ const Plan = ({ type, exercise, time }: PlanProps) => {
         backgroundImage: "url(/assets/main/planGround.png)",
         backgroundRepeat: "round",
         backgroundSize: "cover",
-        boxShadow: "0px 3px 15px 10px rgba(220, 220, 220, 0.25)",
+        boxShadow: "0px 3px 30px 10px rgba(164, 160, 160, 0.25);",
         padding: "2rem",
+        borderRadius: "10px",
       }}
       direction="row"
       spacing="2rem"
