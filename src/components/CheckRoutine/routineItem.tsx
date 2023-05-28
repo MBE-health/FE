@@ -3,9 +3,9 @@ import { stepProps } from "../../typings";
 import { useEffect } from "react";
 
 interface RoutineItemProps {
-  handleChange: (idx: number, e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (idx: number, state: boolean) => void;
   step: "준비운동" | "본운동" | "마무리운동";
-  isDone: number;
+  isDone: boolean;
   idx: 0 | 1 | 2;
 }
 
@@ -17,9 +17,14 @@ const RoutineItem = ({
   isDone,
   idx,
 }: stepProps & RoutineItemProps) => {
+  function handleCheckBox(e: any, idx: number) {
+    console.log("value : ", e.currentTarget.checked, idx);
+
+    handleChange(idx, e.target.checked);
+  }
   useEffect(() => {
-    console.log("0");
-  }, [isDone]);
+    console.log("idx", idx, isDone);
+  }, [idx, isDone]);
   return (
     <Box
       display="flex"
@@ -31,8 +36,10 @@ const RoutineItem = ({
     >
       <Box display="flex" flexDirection="row" alignItems="center">
         <Checkbox
-          checked={Boolean(isDone)}
-          onChange={(e) => handleChange(idx, e)}
+          /*checked={Boolean(isDone)}*/
+          /*checked={!isDone}*/
+          /*onChange={(e) => handleChange( idx)}*/
+          onClick={(e) => handleCheckBox(e, idx)}
         />
         <Typography>{step}</Typography>{" "}
       </Box>
