@@ -21,10 +21,7 @@ const Mypage = () => {
         <RecordEmotion />
 
         <ShowRoutine />
-
-        <Container maxWidth="md">
-          <GraphRoutine width="70rem" height="auto" />
-        </Container>
+        <GraphRoutine width="75rem" height="auto" />
       </Box>
     </Container>
   );

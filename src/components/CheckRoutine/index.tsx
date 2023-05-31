@@ -95,6 +95,7 @@ const CheckRoutine = () => {
         color="secondary"
         variant="contained"
         onClick={handleBtnClick}
+        sx={{ marginLeft: "1.5rem" }}
       >
         완료
       </Button>

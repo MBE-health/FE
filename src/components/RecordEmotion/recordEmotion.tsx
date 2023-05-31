@@ -25,13 +25,16 @@ const RecordEmotion = () => {
       marginTop="1.5rem"
       justifyContent="space-around"
       height="25rem"
+      marginLeft="1.5rem"
     >
-      <Typography variant="h4">오늘의 상태</Typography>
+      <Typography variant="h4" marginLeft="1.5rem">
+        오늘의 상태
+      </Typography>
       <Box
         style={{
           backgroundImage: "url(/assets/login/background.png)",
-          backgroundRepeat: "round",
-          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100% 100%",
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-around",
@@ -69,6 +72,9 @@ const RecordEmotion = () => {
         color="secondary"
         variant="contained"
         onClick={HandleCompleteBtn}
+        sx={{
+          marginLeft: "1.5rem",
+        }}
       >
         완료
       </Button>

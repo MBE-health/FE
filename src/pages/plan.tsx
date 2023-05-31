@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import { Box, Button, Container } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import { StepContainer, PopupDialog } from "../components";
 import {
   healthConditionProps,
@@ -47,16 +47,16 @@ const Plan = () => {
   };
   const navigate = useNavigate();
   const [healthCondition, setHealthCondition] = useState<healthConditionProps>({
-    신장: 1,
-    체중: 2,
-    체지방률: 3,
-    BMI: 4,
-    앉아윗몸앞으로굽히기: 5,
-    교차윗몸일으키기: 6,
-    왕복오래달리기: 7,
-    왕복달리기_10M_4회: 8,
-    제자리_멀리뛰기: 9,
-    상대악력: 10,
+    신장: 0,
+    체중: 0,
+    체지방률: 0,
+    BMI: 0,
+    앉아윗몸앞으로굽히기: 0,
+    교차윗몸일으키기: 0,
+    왕복오래달리기: 0,
+    왕복달리기_10M_4회: 0,
+    제자리_멀리뛰기: 0,
+    상대악력: 0,
   });
   const [isHealthCompleted, setIsHealthCompleted] = useState<boolean>(false);
 
@@ -120,8 +120,12 @@ const Plan = () => {
         backgroundImage: "url(/assets/background.png)",
         backgroundSize: "100% 100%",
         backgroundRepeat: "no-repeat",
+        padding: "5rem",
       }}
     >
+      <Typography variant="h2" marginLeft="4.5rem" marginBottom="5rem">
+        운동 플랜 생성하기
+      </Typography>
       <StepContainer
         checkBoxTitle="Step 1"
         title="체력 진단 평가 항목"
@@ -156,11 +160,12 @@ const Plan = () => {
             variant="contained"
             type="button"
             onClick={handleSubmitBtn}
-            fullWidth
+            /*fullWidth*/
             disableElevation
             sx={{
               backgroundColor: "secondary.light",
-              margin: "6.5rem 0 1.5rem",
+              margin: "6.5rem 2rem 0 2rem",
+              width: "97%",
               "&:hover": {
                 border: "2px solid secondary.main",
                 borderColor: "secondary.main",

@@ -66,8 +66,8 @@ const ShowRoutine = () => {
       <Box
         style={{
           backgroundImage: "url(/assets/login/background.png)",
-          backgroundRepeat: "round",
-          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100% 100%",
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-around",
@@ -143,8 +143,8 @@ const ShowRoutine = () => {
           width="65%"
           style={{
             backgroundImage: "url(/assets/routine/background.png)",
-            backgroundRepeat: "round",
-            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "100% 100%",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-around",
@@ -191,6 +191,7 @@ const ShowRoutine = () => {
         color="secondary"
         variant="contained"
         onClick={HandleCompleteBtn}
+        sx={{ marginLeft: "1.5rem" }}
       >
         완료
       </Button>
