@@ -80,7 +80,7 @@ const GraphItem = ({ width, height }: GraphItemProps) => {
   }, []);
   return (
     <Box>
-      {getDoneDate.length > 0 && (
+      {getDoneDate.length > 0 && doneCnt.length > 0 && (
         <Bar
           options={options}
           data={data}

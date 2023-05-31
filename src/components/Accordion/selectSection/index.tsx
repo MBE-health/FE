@@ -37,7 +37,7 @@ const SelectSection = ({
     setComplete(false);
 
     if (isPressed === "false") {
-      target.style.backgroundColor = "Red";
+      target.style.backgroundColor = "#C5CCE7";
       target.setAttribute("aria-pressed", "true");
     } else {
       target.style.backgroundColor = "transparent";
@@ -73,7 +73,12 @@ const SelectSection = ({
         </Typography>
       </Grid>
       <Grid item xs={10}>
-        <Stack direction="row" spacing={2} alignItems="center">
+        <Stack
+          direction="row"
+          spacing={2}
+          alignItems="center"
+          padding="3rem 0rem"
+        >
           <ToggleButtonGroup
             // @ts-ignore
             value={exercise[label]}

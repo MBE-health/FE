@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-
 import { Box, Button, Container } from "@mui/material";
-import { StepContainer } from "../components";
+import { StepContainer, PopupDialog } from "../components";
 import {
   healthConditionProps,
   exerciseConditionProps,
@@ -33,6 +32,19 @@ const handleExerciseConditionFormat = (
 };
 
 const Plan = () => {
+  const [open, setOpen] = useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleSubmitBtn = () => {
+    handleClickOpen();
+    handleSubmit();
+  };
   const navigate = useNavigate();
   const [healthCondition, setHealthCondition] = useState<healthConditionProps>({
     신장: 1,
@@ -68,23 +80,6 @@ const Plan = () => {
     console.log(healthCondition, exerciseCondition, keywords);
     console.log(isHealthCompleted, isExerciseCompleted, isKeywordsCompleted);
 
-    {
-      /*    const search_response = await getSearchAgent(keywords.keywords);
-  console.log(search_response);*/
-    }
-
-    {
-      /*
-;
-  
-  */
-    }
-
-    {
-      /*const response = await aprioriRec(healthCondition);
-  console.log(response);*/
-    }
-
     const grade = 1;
     let search_response = [];
     let csv_response = [];
@@ -111,6 +106,8 @@ const Plan = () => {
               grade
             )
           : await getRec(healthCondition);
+
+      handleClose();
       handleRoute(navigate, response as recResProps);
     }
   };
@@ -154,10 +151,11 @@ const Plan = () => {
       />
       <center>
         <Container maxWidth="xl" sx={{ marginBottom: "3rem" }}>
+          <PopupDialog open={open} handleClose={handleClose} />
           <Button
             variant="contained"
             type="button"
-            onClick={handleSubmit}
+            onClick={handleSubmitBtn}
             fullWidth
             disableElevation
             sx={{
