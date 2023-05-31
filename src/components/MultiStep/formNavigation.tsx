@@ -36,6 +36,9 @@ const FormNavigation: FC<Props> = (props) => {
         color="primary"
         variant="contained"
         onClick={props.isLastStep ? props.handleSubmit : props.onNextClick}
+        sx={{
+          marginRight: "2.5rem",
+        }}
       >
         {props.isLastStep ? "Submit" : "Next"}
       </Button>

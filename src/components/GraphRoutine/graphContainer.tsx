@@ -18,12 +18,14 @@ const GraphContainer = ({ width, height }: GraphContainerProps) => {
       width="100%"
       /*marginBottom="9.2rem"*/
     >
-      <Typography variant="h4">루틴 달성 여부</Typography>
+      <Typography variant="h4" marginLeft="1.5rem">
+        루틴 달성 여부
+      </Typography>
       <Box
         style={{
           backgroundImage: "url(/assets/login/background.png)",
-          backgroundRepeat: "round",
-          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100% 100%",
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-around",

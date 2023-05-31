@@ -44,8 +44,8 @@ const RecForm = ({ routines, data, setData }: setRecFormProps) => {
     <Box
       style={{
         backgroundImage: "url(/assets/login/background.png)",
-        backgroundRepeat: "round",
-        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "100% 100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
