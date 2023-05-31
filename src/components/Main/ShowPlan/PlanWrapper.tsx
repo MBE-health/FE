@@ -33,10 +33,7 @@ const PlanWrapper = ({ isLogin }: planWrapperProps) => {
         {isLogin ? (
           <>
             <Typography variant="h3" display="inline" color="secondary.dark">
-              ??username??
-            </Typography>
-            <Typography variant="h3" display="inline">
-              님의 오늘 운동 플랜
+              오늘 운동 플랜
             </Typography>
           </>
         ) : (
