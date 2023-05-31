@@ -29,16 +29,17 @@ export const getRecentPlan = async () => {
   //console.log(data);
   const PREFIX_URL = "/plan";
   const userId = localStorage.getItem("userId"); //수정 필요
+  const date = new Date().toISOString().substring(0, 10).replace(/-/g, "");
   try {
     const { data, status } = await fbStepFCAxios.get(
-      `user${PREFIX_URL}/${userId}`,
+      `user${PREFIX_URL}/${userId}/${date}`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("idToken")}`,
         },
       }
     );
-    //console.log(data[0], status);
+    console.log(data[0], status);
     return { data: data[0], status };
     //return status;
   } catch (err) {
